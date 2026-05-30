@@ -1,0 +1,1788 @@
+{
+  "type": "FeatureCollection",
+  "name": "blocks",
+  "properties": {
+    "estate_id": "estate_demo_01",
+    "estate_name": "Demo Estate",
+    "data_type": "synthetic_demo",
+    "crs": "EPSG:4326"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-001",
+        "block_code": "B-001",
+        "block_name": "Block B-001",
+        "estate_id": "estate_demo_01",
+        "area_ha": 195.57
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.360139,
+              -0.53024
+            ],
+            [
+              101.372025,
+              -0.53024
+            ],
+            [
+              101.372025,
+              -0.516962
+            ],
+            [
+              101.360139,
+              -0.516962
+            ],
+            [
+              101.360139,
+              -0.53024
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-002",
+        "block_code": "B-002",
+        "block_name": "Block B-002",
+        "estate_id": "estate_demo_01",
+        "area_ha": 192.32
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.372736,
+              -0.529582
+            ],
+            [
+              101.385177,
+              -0.529582
+            ],
+            [
+              101.385177,
+              -0.517107
+            ],
+            [
+              101.372736,
+              -0.517107
+            ],
+            [
+              101.372736,
+              -0.529582
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-003",
+        "block_code": "B-003",
+        "block_name": "Block B-003",
+        "estate_id": "estate_demo_01",
+        "area_ha": 204.64
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.384922,
+              -0.5303
+            ],
+            [
+              101.39703,
+              -0.5303
+            ],
+            [
+              101.39703,
+              -0.516661
+            ],
+            [
+              101.384922,
+              -0.516661
+            ],
+            [
+              101.384922,
+              -0.5303
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-004",
+        "block_code": "B-004",
+        "block_name": "Block B-004",
+        "estate_id": "estate_demo_01",
+        "area_ha": 207.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.397027,
+              -0.52984
+            ],
+            [
+              101.409699,
+              -0.52984
+            ],
+            [
+              101.409699,
+              -0.516619
+            ],
+            [
+              101.397027,
+              -0.516619
+            ],
+            [
+              101.397027,
+              -0.52984
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-005",
+        "block_code": "B-005",
+        "block_name": "Block B-005",
+        "estate_id": "estate_demo_01",
+        "area_ha": 198.97
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.40972,
+              -0.52967
+            ],
+            [
+              101.422589,
+              -0.52967
+            ],
+            [
+              101.422589,
+              -0.517193
+            ],
+            [
+              101.40972,
+              -0.517193
+            ],
+            [
+              101.40972,
+              -0.52967
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-006",
+        "block_code": "B-006",
+        "block_name": "Block B-006",
+        "estate_id": "estate_demo_01",
+        "area_ha": 201.71
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.422806,
+              -0.53017
+            ],
+            [
+              101.435198,
+              -0.53017
+            ],
+            [
+              101.435198,
+              -0.517034
+            ],
+            [
+              101.422806,
+              -0.517034
+            ],
+            [
+              101.422806,
+              -0.53017
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-007",
+        "block_code": "B-007",
+        "block_name": "Block B-007",
+        "estate_id": "estate_demo_01",
+        "area_ha": 196.34
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.435457,
+              -0.530434
+            ],
+            [
+              101.447337,
+              -0.530434
+            ],
+            [
+              101.447337,
+              -0.517097
+            ],
+            [
+              101.435457,
+              -0.517097
+            ],
+            [
+              101.435457,
+              -0.530434
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-008",
+        "block_code": "B-008",
+        "block_name": "Block B-008",
+        "estate_id": "estate_demo_01",
+        "area_ha": 201.25
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.447847,
+              -0.529672
+            ],
+            [
+              101.460104,
+              -0.529672
+            ],
+            [
+              101.460104,
+              -0.516422
+            ],
+            [
+              101.447847,
+              -0.516422
+            ],
+            [
+              101.447847,
+              -0.529672
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-009",
+        "block_code": "B-009",
+        "block_name": "Block B-009",
+        "estate_id": "estate_demo_01",
+        "area_ha": 216.71
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.360036,
+              -0.516796
+            ],
+            [
+              101.372973,
+              -0.516796
+            ],
+            [
+              101.372973,
+              -0.503278
+            ],
+            [
+              101.360036,
+              -0.503278
+            ],
+            [
+              101.360036,
+              -0.516796
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-010",
+        "block_code": "B-010",
+        "block_name": "Block B-010",
+        "estate_id": "estate_demo_01",
+        "area_ha": 198.44
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.372829,
+              -0.516281
+            ],
+            [
+              101.385119,
+              -0.516281
+            ],
+            [
+              101.385119,
+              -0.503251
+            ],
+            [
+              101.372829,
+              -0.503251
+            ],
+            [
+              101.372829,
+              -0.516281
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-011",
+        "block_code": "B-011",
+        "block_name": "Block B-011",
+        "estate_id": "estate_demo_01",
+        "area_ha": 196.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.385205,
+              -0.516957
+            ],
+            [
+              101.397046,
+              -0.516957
+            ],
+            [
+              101.397046,
+              -0.503558
+            ],
+            [
+              101.385205,
+              -0.503558
+            ],
+            [
+              101.385205,
+              -0.516957
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-012",
+        "block_code": "B-012",
+        "block_name": "Block B-012",
+        "estate_id": "estate_demo_01",
+        "area_ha": 212.01
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.39708,
+              -0.517092
+            ],
+            [
+              101.409733,
+              -0.517092
+            ],
+            [
+              101.409733,
+              -0.50357
+            ],
+            [
+              101.39708,
+              -0.50357
+            ],
+            [
+              101.39708,
+              -0.517092
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-013",
+        "block_code": "B-013",
+        "block_name": "Block B-013",
+        "estate_id": "estate_demo_01",
+        "area_ha": 199.45
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.410136,
+              -0.516805
+            ],
+            [
+              101.422365,
+              -0.516805
+            ],
+            [
+              101.422365,
+              -0.503643
+            ],
+            [
+              101.410136,
+              -0.503643
+            ],
+            [
+              101.410136,
+              -0.516805
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-014",
+        "block_code": "B-014",
+        "block_name": "Block B-014",
+        "estate_id": "estate_demo_01",
+        "area_ha": 216.92
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.422267,
+              -0.516509
+            ],
+            [
+              101.435437,
+              -0.516509
+            ],
+            [
+              101.435437,
+              -0.503217
+            ],
+            [
+              101.422267,
+              -0.503217
+            ],
+            [
+              101.422267,
+              -0.516509
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-015",
+        "block_code": "B-015",
+        "block_name": "Block B-015",
+        "estate_id": "estate_demo_01",
+        "area_ha": 219.48
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.434671,
+              -0.517026
+            ],
+            [
+              101.447729,
+              -0.517026
+            ],
+            [
+              101.447729,
+              -0.503462
+            ],
+            [
+              101.434671,
+              -0.503462
+            ],
+            [
+              101.434671,
+              -0.517026
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-016",
+        "block_code": "B-016",
+        "block_name": "Block B-016",
+        "estate_id": "estate_demo_01",
+        "area_ha": 202.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.44799,
+              -0.516606
+            ],
+            [
+              101.46014,
+              -0.516606
+            ],
+            [
+              101.46014,
+              -0.503136
+            ],
+            [
+              101.44799,
+              -0.503136
+            ],
+            [
+              101.44799,
+              -0.516606
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-017",
+        "block_code": "B-017",
+        "block_name": "Block B-017",
+        "estate_id": "estate_demo_01",
+        "area_ha": 202.18
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.360343,
+              -0.503622
+            ],
+            [
+              101.372776,
+              -0.503622
+            ],
+            [
+              101.372776,
+              -0.490499
+            ],
+            [
+              101.360343,
+              -0.490499
+            ],
+            [
+              101.360343,
+              -0.503622
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-018",
+        "block_code": "B-018",
+        "block_name": "Block B-018",
+        "estate_id": "estate_demo_01",
+        "area_ha": 217.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.372315,
+              -0.503642
+            ],
+            [
+              101.384768,
+              -0.503642
+            ],
+            [
+              101.384768,
+              -0.489528
+            ],
+            [
+              101.372315,
+              -0.489528
+            ],
+            [
+              101.372315,
+              -0.503642
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-019",
+        "block_code": "B-019",
+        "block_name": "Block B-019",
+        "estate_id": "estate_demo_01",
+        "area_ha": 193.17
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.385376,
+              -0.503168
+            ],
+            [
+              101.397315,
+              -0.503168
+            ],
+            [
+              101.397315,
+              -0.490111
+            ],
+            [
+              101.385376,
+              -0.490111
+            ],
+            [
+              101.385376,
+              -0.503168
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-020",
+        "block_code": "B-020",
+        "block_name": "Block B-020",
+        "estate_id": "estate_demo_01",
+        "area_ha": 198.71
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.397915,
+              -0.503584
+            ],
+            [
+              101.409959,
+              -0.503584
+            ],
+            [
+              101.409959,
+              -0.49027
+            ],
+            [
+              101.397915,
+              -0.49027
+            ],
+            [
+              101.397915,
+              -0.503584
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-021",
+        "block_code": "B-021",
+        "block_name": "Block B-021",
+        "estate_id": "estate_demo_01",
+        "area_ha": 206.65
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.410061,
+              -0.503243
+            ],
+            [
+              101.422263,
+              -0.503243
+            ],
+            [
+              101.422263,
+              -0.489576
+            ],
+            [
+              101.410061,
+              -0.489576
+            ],
+            [
+              101.410061,
+              -0.503243
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-022",
+        "block_code": "B-022",
+        "block_name": "Block B-022",
+        "estate_id": "estate_demo_01",
+        "area_ha": 195.61
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.422399,
+              -0.502803
+            ],
+            [
+              101.434719,
+              -0.502803
+            ],
+            [
+              101.434719,
+              -0.48999
+            ],
+            [
+              101.422399,
+              -0.48999
+            ],
+            [
+              101.422399,
+              -0.502803
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-023",
+        "block_code": "B-023",
+        "block_name": "Block B-023",
+        "estate_id": "estate_demo_01",
+        "area_ha": 214.33
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.434591,
+              -0.50375
+            ],
+            [
+              101.447047,
+              -0.50375
+            ],
+            [
+              101.447047,
+              -0.489864
+            ],
+            [
+              101.434591,
+              -0.489864
+            ],
+            [
+              101.434591,
+              -0.50375
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-024",
+        "block_code": "B-024",
+        "block_name": "Block B-024",
+        "estate_id": "estate_demo_01",
+        "area_ha": 205.52
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.447792,
+              -0.503799
+            ],
+            [
+              101.459922,
+              -0.503799
+            ],
+            [
+              101.459922,
+              -0.490126
+            ],
+            [
+              101.447792,
+              -0.490126
+            ],
+            [
+              101.447792,
+              -0.503799
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-025",
+        "block_code": "B-025",
+        "block_name": "Block B-025",
+        "estate_id": "estate_demo_01",
+        "area_ha": 197.06
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.360496,
+              -0.489498
+            ],
+            [
+              101.372529,
+              -0.489498
+            ],
+            [
+              101.372529,
+              -0.476282
+            ],
+            [
+              101.360496,
+              -0.476282
+            ],
+            [
+              101.360496,
+              -0.489498
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-026",
+        "block_code": "B-026",
+        "block_name": "Block B-026",
+        "estate_id": "estate_demo_01",
+        "area_ha": 215.73
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.372011,
+              -0.489806
+            ],
+            [
+              101.385221,
+              -0.489806
+            ],
+            [
+              101.385221,
+              -0.476627
+            ],
+            [
+              101.372011,
+              -0.476627
+            ],
+            [
+              101.372011,
+              -0.489806
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-027",
+        "block_code": "B-027",
+        "block_name": "Block B-027",
+        "estate_id": "estate_demo_01",
+        "area_ha": 218.21
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.384767,
+              -0.490414
+            ],
+            [
+              101.397641,
+              -0.490414
+            ],
+            [
+              101.397641,
+              -0.476736
+            ],
+            [
+              101.384767,
+              -0.476736
+            ],
+            [
+              101.384767,
+              -0.490414
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-028",
+        "block_code": "B-028",
+        "block_name": "Block B-028",
+        "estate_id": "estate_demo_01",
+        "area_ha": 204.26
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.397454,
+              -0.489599
+            ],
+            [
+              101.410454,
+              -0.489599
+            ],
+            [
+              101.410454,
+              -0.476919
+            ],
+            [
+              101.397454,
+              -0.476919
+            ],
+            [
+              101.397454,
+              -0.489599
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-029",
+        "block_code": "B-029",
+        "block_name": "Block B-029",
+        "estate_id": "estate_demo_01",
+        "area_ha": 200.54
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.410001,
+              -0.48956
+            ],
+            [
+              101.422179,
+              -0.48956
+            ],
+            [
+              101.422179,
+              -0.476271
+            ],
+            [
+              101.410001,
+              -0.476271
+            ],
+            [
+              101.410001,
+              -0.48956
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-030",
+        "block_code": "B-030",
+        "block_name": "Block B-030",
+        "estate_id": "estate_demo_01",
+        "area_ha": 204.42
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.422298,
+              -0.489884
+            ],
+            [
+              101.435139,
+              -0.489884
+            ],
+            [
+              101.435139,
+              -0.477037
+            ],
+            [
+              101.422298,
+              -0.477037
+            ],
+            [
+              101.422298,
+              -0.489884
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-031",
+        "block_code": "B-031",
+        "block_name": "Block B-031",
+        "estate_id": "estate_demo_01",
+        "area_ha": 198.81
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.435263,
+              -0.489703
+            ],
+            [
+              101.447539,
+              -0.489703
+            ],
+            [
+              101.447539,
+              -0.476634
+            ],
+            [
+              101.435263,
+              -0.476634
+            ],
+            [
+              101.435263,
+              -0.489703
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-032",
+        "block_code": "B-032",
+        "block_name": "Block B-032",
+        "estate_id": "estate_demo_01",
+        "area_ha": 227.29
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.447001,
+              -0.490513
+            ],
+            [
+              101.459824,
+              -0.490513
+            ],
+            [
+              101.459824,
+              -0.476209
+            ],
+            [
+              101.447001,
+              -0.476209
+            ],
+            [
+              101.447001,
+              -0.490513
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-033",
+        "block_code": "B-033",
+        "block_name": "Block B-033",
+        "estate_id": "estate_demo_01",
+        "area_ha": 201.64
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.360379,
+              -0.476872
+            ],
+            [
+              101.372832,
+              -0.476872
+            ],
+            [
+              101.372832,
+              -0.463805
+            ],
+            [
+              101.360379,
+              -0.463805
+            ],
+            [
+              101.360379,
+              -0.476872
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-034",
+        "block_code": "B-034",
+        "block_name": "Block B-034",
+        "estate_id": "estate_demo_01",
+        "area_ha": 214.33
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.372878,
+              -0.477109
+            ],
+            [
+              101.385447,
+              -0.477109
+            ],
+            [
+              101.385447,
+              -0.463348
+            ],
+            [
+              101.372878,
+              -0.463348
+            ],
+            [
+              101.372878,
+              -0.477109
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-035",
+        "block_code": "B-035",
+        "block_name": "Block B-035",
+        "estate_id": "estate_demo_01",
+        "area_ha": 206.84
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.384569,
+              -0.476383
+            ],
+            [
+              101.397761,
+              -0.476383
+            ],
+            [
+              101.397761,
+              -0.46373
+            ],
+            [
+              101.384569,
+              -0.46373
+            ],
+            [
+              101.384569,
+              -0.476383
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-036",
+        "block_code": "B-036",
+        "block_name": "Block B-036",
+        "estate_id": "estate_demo_01",
+        "area_ha": 217.86
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.397475,
+              -0.476917
+            ],
+            [
+              101.41005,
+              -0.476917
+            ],
+            [
+              101.41005,
+              -0.462936
+            ],
+            [
+              101.397475,
+              -0.462936
+            ],
+            [
+              101.397475,
+              -0.476917
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-037",
+        "block_code": "B-037",
+        "block_name": "Block B-037",
+        "estate_id": "estate_demo_01",
+        "area_ha": 206.14
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.409923,
+              -0.476625
+            ],
+            [
+              101.422212,
+              -0.476625
+            ],
+            [
+              101.422212,
+              -0.463088
+            ],
+            [
+              101.409923,
+              -0.463088
+            ],
+            [
+              101.409923,
+              -0.476625
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-038",
+        "block_code": "B-038",
+        "block_name": "Block B-038",
+        "estate_id": "estate_demo_01",
+        "area_ha": 202.62
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.422201,
+              -0.476139
+            ],
+            [
+              101.434812,
+              -0.476139
+            ],
+            [
+              101.434812,
+              -0.463173
+            ],
+            [
+              101.422201,
+              -0.463173
+            ],
+            [
+              101.422201,
+              -0.476139
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-039",
+        "block_code": "B-039",
+        "block_name": "Block B-039",
+        "estate_id": "estate_demo_01",
+        "area_ha": 209.58
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.434938,
+              -0.477071
+            ],
+            [
+              101.447518,
+              -0.477071
+            ],
+            [
+              101.447518,
+              -0.463627
+            ],
+            [
+              101.434938,
+              -0.463627
+            ],
+            [
+              101.434938,
+              -0.477071
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-040",
+        "block_code": "B-040",
+        "block_name": "Block B-040",
+        "estate_id": "estate_demo_01",
+        "area_ha": 210.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.447338,
+              -0.476955
+            ],
+            [
+              101.460088,
+              -0.476955
+            ],
+            [
+              101.460088,
+              -0.463632
+            ],
+            [
+              101.447338,
+              -0.463632
+            ],
+            [
+              101.447338,
+              -0.476955
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-041",
+        "block_code": "B-041",
+        "block_name": "Block B-041",
+        "estate_id": "estate_demo_01",
+        "area_ha": 227.44
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.359571,
+              -0.463622
+            ],
+            [
+              101.372631,
+              -0.463622
+            ],
+            [
+              101.372631,
+              -0.449568
+            ],
+            [
+              101.359571,
+              -0.449568
+            ],
+            [
+              101.359571,
+              -0.463622
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-042",
+        "block_code": "B-042",
+        "block_name": "Block B-042",
+        "estate_id": "estate_demo_01",
+        "area_ha": 200.16
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.37286,
+              -0.463613
+            ],
+            [
+              101.384571,
+              -0.463613
+            ],
+            [
+              101.384571,
+              -0.44982
+            ],
+            [
+              101.37286,
+              -0.44982
+            ],
+            [
+              101.37286,
+              -0.463613
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-043",
+        "block_code": "B-043",
+        "block_name": "Block B-043",
+        "estate_id": "estate_demo_01",
+        "area_ha": 199.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.384714,
+              -0.462869
+            ],
+            [
+              101.397132,
+              -0.462869
+            ],
+            [
+              101.397132,
+              -0.449924
+            ],
+            [
+              101.384714,
+              -0.449924
+            ],
+            [
+              101.384714,
+              -0.462869
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-044",
+        "block_code": "B-044",
+        "block_name": "Block B-044",
+        "estate_id": "estate_demo_01",
+        "area_ha": 201.23
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.397473,
+              -0.463005
+            ],
+            [
+              101.410285,
+              -0.463005
+            ],
+            [
+              101.410285,
+              -0.45033
+            ],
+            [
+              101.397473,
+              -0.45033
+            ],
+            [
+              101.397473,
+              -0.463005
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-045",
+        "block_code": "B-045",
+        "block_name": "Block B-045",
+        "estate_id": "estate_demo_01",
+        "area_ha": 212.79
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.409597,
+              -0.463415
+            ],
+            [
+              101.422431,
+              -0.463415
+            ],
+            [
+              101.422431,
+              -0.450035
+            ],
+            [
+              101.409597,
+              -0.450035
+            ],
+            [
+              101.409597,
+              -0.463415
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-046",
+        "block_code": "B-046",
+        "block_name": "Block B-046",
+        "estate_id": "estate_demo_01",
+        "area_ha": 191.04
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.422729,
+              -0.462817
+            ],
+            [
+              101.435173,
+              -0.462817
+            ],
+            [
+              101.435173,
+              -0.450428
+            ],
+            [
+              101.422729,
+              -0.450428
+            ],
+            [
+              101.422729,
+              -0.462817
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-047",
+        "block_code": "B-047",
+        "block_name": "Block B-047",
+        "estate_id": "estate_demo_01",
+        "area_ha": 195.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.434903,
+              -0.462948
+            ],
+            [
+              101.447339,
+              -0.462948
+            ],
+            [
+              101.447339,
+              -0.450268
+            ],
+            [
+              101.434903,
+              -0.450268
+            ],
+            [
+              101.434903,
+              -0.462948
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "block_id": "B-048",
+        "block_code": "B-048",
+        "block_name": "Block B-048",
+        "estate_id": "estate_demo_01",
+        "area_ha": 208.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              101.44719,
+              -0.463417
+            ],
+            [
+              101.459949,
+              -0.463417
+            ],
+            [
+              101.459949,
+              -0.450236
+            ],
+            [
+              101.44719,
+              -0.450236
+            ],
+            [
+              101.44719,
+              -0.463417
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
