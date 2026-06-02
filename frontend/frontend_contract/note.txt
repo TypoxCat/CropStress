@@ -1,0 +1,12 @@
+Agent C: copy frontend_contract/queries.ts into src/lib/queries.ts.
+
+Install: npm install @supabase/supabase-js
+
+Env (.env.local):
+  NEXT_PUBLIC_SUPABASE_URL=
+  NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+Use DEMO_ESTATE_ID ("estate_demo_01") for Day 1 filters.
+Do not use SUPABASE_SERVICE_ROLE_KEY in the browser.
+
+Optional: extract getSupabase() into src/lib/supabaseClient.ts if you prefer a separate client module.
