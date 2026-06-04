@@ -64,7 +64,7 @@ export function EstateMap({
   }
 
   return (
-    <section className="flex h-full min-h-[28rem] flex-col bg-white">
+    <section className="flex h-[100vh] min-h-[28rem] flex-col bg-white">
       <div className="flex items-center justify-between border-b border-crop-line px-4 py-3">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-crop-ink">
           Block Risk Map

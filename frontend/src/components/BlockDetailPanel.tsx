@@ -3,6 +3,7 @@ import type { LatestBlockRisk } from "@/lib/queries";
 
 type BlockDetailPanelProps = {
   block: LatestBlockRisk | null;
+  onVerifyField?: () => void;
 };
 
 function formatNumber(value: number | null, digits = 2): string {
@@ -22,7 +23,7 @@ function DetailRow({ label, value }: { label: string; value: React.ReactNode }) 
   );
 }
 
-export function BlockDetailPanel({ block }: BlockDetailPanelProps) {
+export function BlockDetailPanel({ block, onVerifyField }: BlockDetailPanelProps) {
   if (!block) {
     return (
       <section className="p-4">
@@ -74,6 +75,12 @@ export function BlockDetailPanel({ block }: BlockDetailPanelProps) {
         />
         <DetailRow label="Quality flag" value={block.quality_flag ?? "Unknown"} />
       </dl>
+      <button
+        onClick={onVerifyField}
+        className="mt-4 w-full rounded bg-crop-field px-3 py-2 text-sm font-semibold text-white hover:opacity-90"
+      >
+        Verify Field
+      </button>
     </section>
   );
 }
