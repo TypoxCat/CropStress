@@ -3,9 +3,9 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { FieldVerificationForm } from "@/components/FieldVerificationForm";
 import { getLatestBlockRisk, submitFieldReport, type FieldReportPayload, type LatestBlockRisk } from "@/lib/queries";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
-export default function FieldVerificationPage() {
+function FieldVerificationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const blockId = searchParams.get("blockId");
@@ -39,5 +39,19 @@ export default function FieldVerificationPage() {
         <FieldVerificationForm block={block} onSubmit={handleFieldSubmit} />
       </section>
     </main>
+  );
+}
+
+export default function FieldVerificationPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-[#eef3ed] p-5 text-crop-ink">
+          Loading field verification...
+        </main>
+      }
+    >
+      <FieldVerificationContent />
+    </Suspense>
   );
 }

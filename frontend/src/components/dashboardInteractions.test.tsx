@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { BlockDetailPanel } from "./BlockDetailPanel";
+import { EstateMap } from "./EstateMap";
 import { FieldVerificationForm } from "./FieldVerificationForm";
 import { ScoutingPriorityList } from "./ScoutingPriorityList";
 import type { LatestBlockRisk, ScoutingPriorityRow } from "@/lib/queries";
@@ -89,6 +90,51 @@ describe("dashboard components", () => {
     expect(screen.getByText("Rainfall deficit")).toBeTruthy();
     expect(screen.getByText("Nearest hotspot distance")).toBeTruthy();
     expect(screen.getByText("Quality flag")).toBeTruthy();
+  });
+
+  it("switches from risk polygons to generated satellite imagery", async () => {
+    const user = userEvent.setup();
+    const onSelectBlock = vi.fn();
+    const blockWithGeometry: LatestBlockRisk = {
+      ...block,
+      observation_date: "2026-06-05",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
+          [
+            [101.38, -0.52],
+            [101.39, -0.52],
+            [101.39, -0.51],
+            [101.38, -0.51],
+            [101.38, -0.52],
+          ],
+        ],
+      },
+    };
+
+    const { container } = render(
+      <EstateMap
+        blocks={[blockWithGeometry]}
+        selectedBlockId={blockWithGeometry.block_id}
+        onSelectBlock={onSelectBlock}
+      />
+    );
+
+    await user.click(screen.getByRole("button", { name: "NDVI" }));
+
+    expect(screen.getByLabelText("NDVI estate map")).toBeTruthy();
+    expect(container.querySelector("image")?.getAttribute("href")).toBe(
+      "/geospatial/ndvi_map_2026-06-05.png"
+    );
+    expect(
+      container
+        .querySelector('polygon[data-risk-overlay="true"]')
+        ?.getAttribute("opacity")
+    ).toBe("0.5");
+    expect(screen.getByText("NDVI satellite index · Risk overlay 50%")).toBeTruthy();
+
+    await user.click(screen.getByRole("button", { name: "Select B-041" }));
+    expect(onSelectBlock).toHaveBeenCalledWith("B-041");
   });
 
   it("submits a field verification payload", async () => {

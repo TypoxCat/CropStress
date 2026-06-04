@@ -65,7 +65,7 @@ describe("demo data utilities", () => {
     expect(metrics.categoryCounts["Priority Inspection"]).toBeGreaterThanOrEqual(
       0
     );
-    expect(metrics.lastProcessed).toBe("2026-05-30");
+    expect(metrics.lastProcessed).toBe("2026-06-05");
   });
 
   it("sorts scouting priorities by priority rank", () => {

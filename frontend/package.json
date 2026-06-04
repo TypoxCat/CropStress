@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "sync:geospatial": "node scripts/sync-geospatial.mjs",
+    "predev": "npm run sync:geospatial",
     "dev": "next dev",
+    "prebuild": "npm run sync:geospatial",
     "build": "next build",
     "lint": "next lint",
     "test": "vitest run"
