@@ -213,6 +213,7 @@ select
   bi.nearest_hotspot_km,
   bi.quality_flag,
 
+  rs.risk_score_id,
   rs.score_date,
   rs.vegetation_stress,
   rs.moisture_stress,
@@ -228,8 +229,6 @@ left join latest_indicators bi
 left join latest_risk rs
   on rs.block_id = b.id;
 
--- Scouting priority list; column names match scouting_priority_latest.json.
--- estate_id and risk_score_id are included for filtering and task linkage.
 create or replace view latest_scouting_priority as
 with latest_risk as (
   select distinct on (block_id)
@@ -249,21 +248,105 @@ select
   )::int as priority_rank,
   b.estate_id,
   b.id as block_id,
+  b.block_code,
+  b.block_name,
   rs.score_date,
   rs.risk_score,
   rs.risk_category,
   rs.dominant_driver,
   rs.recommended_action,
   coalesce(st.task_status, 'monitor_only') as task_status,
+  st.id as scouting_task_id,
   rs.id as risk_score_id
 from latest_risk rs
 join blocks b
   on b.id = rs.block_id
 left join lateral (
-  select st.task_status
+  select st.id, st.task_status
   from scouting_tasks st
   where st.risk_score_id = rs.id
   order by st.created_at desc
   limit 1
 ) st on true
 order by rs.risk_score desc nulls last, rs.block_id;
+
+-- ---------------------------------------------------------------------------
+-- Day 2 demo access rules
+-- ---------------------------------------------------------------------------
+
+alter table estates enable row level security;
+alter table blocks enable row level security;
+alter table processing_runs enable row level security;
+alter table block_indicators enable row level security;
+alter table risk_scores enable row level security;
+alter table scouting_tasks enable row level security;
+alter table field_reports enable row level security;
+
+drop policy if exists "demo read estates" on estates;
+create policy "demo read estates"
+on estates for select
+to anon, authenticated
+using (true);
+
+drop policy if exists "demo read blocks" on blocks;
+create policy "demo read blocks"
+on blocks for select
+to anon, authenticated
+using (true);
+
+drop policy if exists "demo read processing_runs" on processing_runs;
+create policy "demo read processing_runs"
+on processing_runs for select
+to anon, authenticated
+using (true);
+
+drop policy if exists "demo read block_indicators" on block_indicators;
+create policy "demo read block_indicators"
+on block_indicators for select
+to anon, authenticated
+using (true);
+
+drop policy if exists "demo read risk_scores" on risk_scores;
+create policy "demo read risk_scores"
+on risk_scores for select
+to anon, authenticated
+using (true);
+
+drop policy if exists "demo read scouting_tasks" on scouting_tasks;
+create policy "demo read scouting_tasks"
+on scouting_tasks for select
+to anon, authenticated
+using (true);
+
+drop policy if exists "demo insert field_reports" on field_reports;
+create policy "demo insert field_reports"
+on field_reports for insert
+to anon, authenticated
+with check (
+  block_id is not null
+  and stress_confirmed in ('Yes', 'No', 'Unclear')
+  and stress_type in ('Drought', 'Waterlogging', 'Pest', 'Disease', 'Fire Risk', 'Unknown')
+  and severity in ('Low', 'Medium', 'High')
+);
+
+drop policy if exists "demo read field_reports" on field_reports;
+create policy "demo read field_reports"
+on field_reports for select
+to anon, authenticated
+using (true);
+
+grant usage on schema public to anon, authenticated;
+
+grant select on
+  estates,
+  blocks,
+  processing_runs,
+  block_indicators,
+  risk_scores,
+  scouting_tasks,
+  field_reports,
+  latest_block_risk,
+  latest_scouting_priority
+to anon, authenticated;
+
+grant insert on field_reports to anon, authenticated;
