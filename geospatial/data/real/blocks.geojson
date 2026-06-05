@@ -13,9 +13,7 @@
       "max_lon": 102.562492,
       "min_lat": -0.63849,
       "max_lat": -0.596848
-    },
-    "day2_usage": "geometry_source_for_demo_risk_generation",
-    "day2_generated_at": "2026-06-05"
+    }
   },
   "features": [
     {
@@ -26,8 +24,7 @@
         "block_name": "Block B-001",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -65,8 +62,7 @@
         "block_name": "Block B-002",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -104,8 +100,7 @@
         "block_name": "Block B-003",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -143,8 +138,7 @@
         "block_name": "Block B-004",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -182,8 +176,7 @@
         "block_name": "Block B-005",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -221,8 +214,7 @@
         "block_name": "Block B-006",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -260,8 +252,7 @@
         "block_name": "Block B-007",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -299,8 +290,7 @@
         "block_name": "Block B-008",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -338,8 +328,7 @@
         "block_name": "Block B-009",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -377,8 +366,7 @@
         "block_name": "Block B-010",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -416,8 +404,7 @@
         "block_name": "Block B-011",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -455,8 +442,7 @@
         "block_name": "Block B-012",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -494,8 +480,7 @@
         "block_name": "Block B-013",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -533,8 +518,7 @@
         "block_name": "Block B-014",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -572,8 +556,7 @@
         "block_name": "Block B-015",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -611,8 +594,7 @@
         "block_name": "Block B-016",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -650,8 +632,7 @@
         "block_name": "Block B-017",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -689,8 +670,7 @@
         "block_name": "Block B-018",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -728,8 +708,7 @@
         "block_name": "Block B-019",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -767,8 +746,7 @@
         "block_name": "Block B-020",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -806,8 +784,7 @@
         "block_name": "Block B-021",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -845,8 +822,7 @@
         "block_name": "Block B-022",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -884,8 +860,7 @@
         "block_name": "Block B-023",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -923,8 +898,7 @@
         "block_name": "Block B-024",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -962,8 +936,7 @@
         "block_name": "Block B-025",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1001,8 +974,7 @@
         "block_name": "Block B-026",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1040,8 +1012,7 @@
         "block_name": "Block B-027",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1079,8 +1050,7 @@
         "block_name": "Block B-028",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1118,8 +1088,7 @@
         "block_name": "Block B-029",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1157,8 +1126,7 @@
         "block_name": "Block B-030",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1196,8 +1164,7 @@
         "block_name": "Block B-031",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1235,8 +1202,7 @@
         "block_name": "Block B-032",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1274,8 +1240,7 @@
         "block_name": "Block B-033",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1313,8 +1278,7 @@
         "block_name": "Block B-034",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1352,8 +1316,7 @@
         "block_name": "Block B-035",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1391,8 +1354,7 @@
         "block_name": "Block B-036",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1430,8 +1392,7 @@
         "block_name": "Block B-037",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1469,8 +1430,7 @@
         "block_name": "Block B-038",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1508,8 +1468,7 @@
         "block_name": "Block B-039",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1547,8 +1506,7 @@
         "block_name": "Block B-040",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1586,8 +1544,7 @@
         "block_name": "Block B-041",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1625,8 +1582,7 @@
         "block_name": "Block B-042",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1664,8 +1620,7 @@
         "block_name": "Block B-043",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1703,8 +1658,7 @@
         "block_name": "Block B-044",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1742,8 +1696,7 @@
         "block_name": "Block B-045",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1781,8 +1734,7 @@
         "block_name": "Block B-046",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1820,8 +1772,7 @@
         "block_name": "Block B-047",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1859,8 +1810,7 @@
         "block_name": "Block B-048",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1898,8 +1848,7 @@
         "block_name": "Block B-049",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1937,8 +1886,7 @@
         "block_name": "Block B-050",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -1976,8 +1924,7 @@
         "block_name": "Block B-051",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2015,8 +1962,7 @@
         "block_name": "Block B-052",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2054,8 +2000,7 @@
         "block_name": "Block B-053",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2093,8 +2038,7 @@
         "block_name": "Block B-054",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2132,8 +2076,7 @@
         "block_name": "Block B-055",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2171,8 +2114,7 @@
         "block_name": "Block B-056",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2210,8 +2152,7 @@
         "block_name": "Block B-057",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2249,8 +2190,7 @@
         "block_name": "Block B-058",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2288,8 +2228,7 @@
         "block_name": "Block B-059",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2327,8 +2266,7 @@
         "block_name": "Block B-060",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2366,8 +2304,7 @@
         "block_name": "Block B-061",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2405,8 +2342,7 @@
         "block_name": "Block B-062",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2444,8 +2380,7 @@
         "block_name": "Block B-063",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2483,8 +2418,7 @@
         "block_name": "Block B-064",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2522,8 +2456,7 @@
         "block_name": "Block B-065",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2561,8 +2494,7 @@
         "block_name": "Block B-066",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2600,8 +2532,7 @@
         "block_name": "Block B-067",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2639,8 +2570,7 @@
         "block_name": "Block B-068",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2678,8 +2608,7 @@
         "block_name": "Block B-069",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2717,8 +2646,7 @@
         "block_name": "Block B-070",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2756,8 +2684,7 @@
         "block_name": "Block B-071",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2795,8 +2722,7 @@
         "block_name": "Block B-072",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2834,8 +2760,7 @@
         "block_name": "Block B-073",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2873,8 +2798,7 @@
         "block_name": "Block B-074",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2912,8 +2836,7 @@
         "block_name": "Block B-075",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2951,8 +2874,7 @@
         "block_name": "Block B-076",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -2990,8 +2912,7 @@
         "block_name": "Block B-077",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3029,8 +2950,7 @@
         "block_name": "Block B-078",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3068,8 +2988,7 @@
         "block_name": "Block B-079",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3107,8 +3026,7 @@
         "block_name": "Block B-080",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3146,8 +3064,7 @@
         "block_name": "Block B-081",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3185,8 +3102,7 @@
         "block_name": "Block B-082",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3224,8 +3140,7 @@
         "block_name": "Block B-083",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3263,8 +3178,7 @@
         "block_name": "Block B-084",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3302,8 +3216,7 @@
         "block_name": "Block B-085",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3341,8 +3254,7 @@
         "block_name": "Block B-086",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3380,8 +3292,7 @@
         "block_name": "Block B-087",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3419,8 +3330,7 @@
         "block_name": "Block B-088",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3458,8 +3368,7 @@
         "block_name": "Block B-089",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3497,8 +3406,7 @@
         "block_name": "Block B-090",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3536,8 +3444,7 @@
         "block_name": "Block B-091",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3575,8 +3482,7 @@
         "block_name": "Block B-092",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3614,8 +3520,7 @@
         "block_name": "Block B-093",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3653,8 +3558,7 @@
         "block_name": "Block B-094",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3692,8 +3596,7 @@
         "block_name": "Block B-095",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3731,8 +3634,7 @@
         "block_name": "Block B-096",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3770,8 +3672,7 @@
         "block_name": "Block B-097",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3809,8 +3710,7 @@
         "block_name": "Block B-098",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3848,8 +3748,7 @@
         "block_name": "Block B-099",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3887,8 +3786,7 @@
         "block_name": "Block B-100",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3926,8 +3824,7 @@
         "block_name": "Block B-101",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -3965,8 +3862,7 @@
         "block_name": "Block B-102",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4004,8 +3900,7 @@
         "block_name": "Block B-103",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4043,8 +3938,7 @@
         "block_name": "Block B-104",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4082,8 +3976,7 @@
         "block_name": "Block B-105",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4121,8 +4014,7 @@
         "block_name": "Block B-106",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4160,8 +4052,7 @@
         "block_name": "Block B-107",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4199,8 +4090,7 @@
         "block_name": "Block B-108",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4238,8 +4128,7 @@
         "block_name": "Block B-109",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4277,8 +4166,7 @@
         "block_name": "Block B-110",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4316,8 +4204,7 @@
         "block_name": "Block B-111",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4355,8 +4242,7 @@
         "block_name": "Block B-112",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4394,8 +4280,7 @@
         "block_name": "Block B-113",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4433,8 +4318,7 @@
         "block_name": "Block B-114",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4472,8 +4356,7 @@
         "block_name": "Block B-115",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4511,8 +4394,7 @@
         "block_name": "Block B-116",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4550,8 +4432,7 @@
         "block_name": "Block B-117",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4589,8 +4470,7 @@
         "block_name": "Block B-118",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4628,8 +4508,7 @@
         "block_name": "Block B-119",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4667,8 +4546,7 @@
         "block_name": "Block B-120",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4706,8 +4584,7 @@
         "block_name": "Block B-121",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4745,8 +4622,7 @@
         "block_name": "Block B-122",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4784,8 +4660,7 @@
         "block_name": "Block B-123",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4823,8 +4698,7 @@
         "block_name": "Block B-124",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4862,8 +4736,7 @@
         "block_name": "Block B-125",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
@@ -4901,8 +4774,7 @@
         "block_name": "Block B-126",
         "estate_id": "estate_demo_01",
         "area_ha": 0.0,
-        "geometry_provenance": "grid_division_18x7",
-        "day2_included": true
+        "geometry_provenance": "grid_division_18x7"
       },
       "geometry": {
         "type": "Polygon",
