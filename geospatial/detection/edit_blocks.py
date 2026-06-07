@@ -114,7 +114,8 @@ while True:
     print("1. Edit block")
     print("2. Add block")
     print("3. Delete block")
-    print("4. Save & Exit")
+    print("4. Swap block numbers")
+    print("5. Save & Exit")
 
     choice = input("\nChoose: ").strip()
 
@@ -247,10 +248,45 @@ while True:
         )
 
     # =================================
-    # SAVE
+    # SWAP
     # =================================
 
     elif choice == "4":
+
+        # print_blocks()
+
+        block_a = int(
+            input("First block number: ")
+        )
+
+        block_b = int(
+            input("Second block number: ")
+        )
+
+        idx_a = get_block_index(block_a)
+        idx_b = get_block_index(block_b)
+
+        if idx_a is None or idx_b is None:
+
+            print("Invalid block")
+            continue
+
+        features[idx_a], features[idx_b] = (
+            features[idx_b],
+            features[idx_a]
+        )
+
+        renumber_blocks()
+
+        print(
+            f"Swapped block {block_a} and {block_b}"
+        )
+        
+    # =================================
+    # SAVE
+    # =================================
+
+    elif choice == "5":
 
         renumber_blocks()
 
