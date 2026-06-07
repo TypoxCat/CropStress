@@ -309,11 +309,11 @@ def download_padded_images():
         geodesic=False
     )
 
-    region_exact = aoi
+    region_padded = aoi
 
-    region_padded = padded_aoi(
+    region_exact = padded_aoi(
         aoi,
-        IMAGE_PADDING_METERS
+        -IMAGE_PADDING_METERS
     )
 
     exact_bounds = (
