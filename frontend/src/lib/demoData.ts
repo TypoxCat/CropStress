@@ -184,17 +184,48 @@ export function getEstateMetrics(blocks: LatestBlockRisk[]): EstateMetrics {
   };
 }
 
+export function isDay2JuryReadyRiskData(
+  rows: Pick<RiskScore, "block_id" | "risk_category" | "risk_score">[]
+): boolean {
+  const uniqueIds = new Set(rows.map((row) => row.block_id));
+  const categoryCounts = RISK_CATEGORIES.reduce(
+    (counts, category) => ({ ...counts, [category]: 0 }),
+    {} as Record<RiskCategory, number>
+  );
+
+  for (const row of rows) {
+    if (isRiskCategory(row.risk_category)) {
+      categoryCounts[row.risk_category] += 1;
+    }
+  }
+
+  const topThree = [...rows]
+    .sort((left, right) => (right.risk_score ?? -1) - (left.risk_score ?? -1))
+    .slice(0, 3);
+
+  return (
+    uniqueIds.size === rows.length &&
+    RISK_CATEGORIES.every((category) => categoryCounts[category] >= 5) &&
+    topThree.length === 3 &&
+    topThree.every((row) =>
+      ["Warning", "Priority Inspection"].includes(row.risk_category ?? "")
+    )
+  );
+}
+
 export function sortScoutingPriority<T extends ScoutingPriorityRow>(
   rows: T[]
 ): T[] {
-  return [...rows].sort((left, right) => {
-    const leftRank = left.priority_rank ?? Number.POSITIVE_INFINITY;
-    const rightRank = right.priority_rank ?? Number.POSITIVE_INFINITY;
+  return [...rows]
+    .sort((left, right) => {
+      const scoreDifference =
+        (right.risk_score ?? -1) - (left.risk_score ?? -1);
 
-    if (leftRank !== rightRank) {
-      return leftRank - rightRank;
-    }
+      if (scoreDifference !== 0) {
+        return scoreDifference;
+      }
 
-    return (right.risk_score ?? -1) - (left.risk_score ?? -1);
-  });
+      return left.block_id.localeCompare(right.block_id);
+    })
+    .map((row, index) => ({ ...row, priority_rank: index + 1 }));
 }

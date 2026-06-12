@@ -36,6 +36,7 @@ vi.mock("@/lib/queries", async () => {
 
   return {
     DEMO_ESTATE_ID: "estate_demo_01",
+    getDataMode: vi.fn(() => "demo"),
     getLatestBlockRisk: vi.fn(async () => [block]),
     getScoutingPriority: vi.fn(async () => [
       {
@@ -64,17 +65,22 @@ vi.mock("@/lib/queries", async () => {
 });
 
 describe("dashboard page", () => {
-  it("renders the Day 1 dashboard shell from query data", async () => {
+  it("renders the Day 2 jury story from query data", async () => {
     render(<Page />);
 
     await waitFor(() => {
       expect(screen.getByText("CropStress Insight")).toBeTruthy();
     });
 
-    expect(screen.getByText("Demo Estate")).toBeTruthy();
+    expect(
+      screen.getByText("Which blocks should the field team inspect first today?")
+    ).toBeTruthy();
+    expect(screen.getByText("Synthetic demo fallback")).toBeTruthy();
     expect(screen.getByText("Scouting Priority List")).toBeTruthy();
+    expect(screen.getByText("Highest risk score first")).toBeTruthy();
     expect(screen.getByText("Estate Map")).toBeTruthy();
-    expect(screen.getByText("Selected Block Detail")).toBeTruthy();
+    expect(screen.getByText("Selected inspection target")).toBeTruthy();
+    expect(screen.getByText("Inspect first:")).toBeTruthy();
     expect(screen.getByRole("button", { name: "Verify Field" })).toBeTruthy();
     expect(screen.getByText("Last processed date")).toBeTruthy();
   });

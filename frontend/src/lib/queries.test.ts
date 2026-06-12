@@ -48,11 +48,13 @@ describe("query contract", () => {
     );
   });
 
-  it("returns scouting priority rows ordered by rank", async () => {
+  it("returns scouting priority rows ordered by risk score", async () => {
     const rows = await getScoutingPriority(DEMO_ESTATE_ID);
 
     expect(rows[0].priority_rank).toBe(1);
-    expect(rows[0].block_id).toBe("B-041");
+    expect(rows[0].block_id).toBe("B-037");
+    expect(rows[0].risk_category).toBe("Priority Inspection");
+    expect(rows[0].risk_score).toBeGreaterThanOrEqual(rows[1].risk_score);
   });
 
   it("returns a single block detail from latest risk rows", async () => {

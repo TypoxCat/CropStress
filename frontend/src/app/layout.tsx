@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "CropStress Insight",
-  description: "Day 1 crop stress scouting dashboard",
+  description: "Crop stress scouting priority dashboard",
 };
 
 export default function RootLayout({

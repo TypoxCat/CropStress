@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import {
   DEMO_ESTATE_ID,
+  isDay2JuryReadyRiskData,
   mergeDemoData,
   sortScoutingPriority,
   type BlockFeatureCollection,
@@ -13,6 +14,7 @@ import {
 
 export { DEMO_ESTATE_ID };
 export type { LatestBlockRisk, RiskCategory, ScoutingPriorityRow };
+export type DataMode = "live" | "demo";
 
 export type StressConfirmed = "Yes" | "No" | "Unclear";
 export type StressType =
@@ -45,10 +47,20 @@ export type FieldReportRow = FieldReportPayload & {
   created_at: string;
 };
 
-const USE_DEMO_DATA =
+const FORCE_DEMO_DATA =
   process.env.NEXT_PUBLIC_USE_DEMO_DATA === "true" ||
   !process.env.NEXT_PUBLIC_SUPABASE_URL ||
   !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+let liveUnavailable = FORCE_DEMO_DATA;
+
+export function getDataMode(): DataMode {
+  return liveUnavailable ? "demo" : "live";
+}
+
+function useDemoFallback(error: unknown): void {
+  liveUnavailable = true;
+  console.warn("Supabase unavailable; using local demo fallback.", error);
+}
 
 const LATEST_BLOCK_RISK_COLUMNS = `
   estate_id,
@@ -135,65 +147,108 @@ async function getDemoBlockRisk(): Promise<LatestBlockRisk[]> {
   return mergeDemoData(blocks, indicators, riskScores);
 }
 
+async function getDemoScoutingPriority(
+  estateId: string
+): Promise<ScoutingPriorityRow[]> {
+  const [priorityRows, latestRisk] = await Promise.all([
+    fetchJson<ScoutingPriorityRow[]>("/demo/scouting_priority_latest.json"),
+    getDemoBlockRisk(),
+  ]);
+  const blocksById = new Map(latestRisk.map((row) => [row.block_id, row]));
+
+  return sortScoutingPriority(
+    priorityRows.map((row) => {
+      const block = blocksById.get(row.block_id);
+
+      return {
+        ...row,
+        estate_id: block?.estate_id ?? estateId,
+        block_code: block?.block_code ?? row.block_id,
+        block_name: block?.block_name ?? null,
+      };
+    })
+  ).filter((row) => row.estate_id === estateId);
+}
+
+function createDemoFieldReport(payload: FieldReportPayload): FieldReportRow {
+  const now = new Date().toISOString();
+
+  return {
+    ...payload,
+    id: `demo-report-${Date.now()}`,
+    observed_at: now,
+    created_at: now,
+  };
+}
+
 export async function getLatestBlockRisk(
   estateId: string
 ): Promise<LatestBlockRisk[]> {
-  if (USE_DEMO_DATA) {
+  if (liveUnavailable) {
     return (await getDemoBlockRisk()).filter((row) => row.estate_id === estateId);
   }
 
-  const { data, error } = await getSupabase()
-    .from("latest_block_risk")
-    .select(LATEST_BLOCK_RISK_COLUMNS)
-    .eq("estate_id", estateId)
-    .order("risk_score", { ascending: false });
+  try {
+    const { data, error } = await getSupabase()
+      .from("latest_block_risk")
+      .select(LATEST_BLOCK_RISK_COLUMNS)
+      .eq("estate_id", estateId)
+      .order("risk_score", { ascending: false });
 
-  if (error) {
-    throw error;
+    if (error) {
+      throw error;
+    }
+
+    if (!data?.length) {
+      throw new Error("Supabase returned no latest block risk rows");
+    }
+
+    if (!isDay2JuryReadyRiskData(data as unknown as LatestBlockRisk[])) {
+      throw new Error("Supabase risk data is not Day 2 jury-ready");
+    }
+
+    return data as unknown as LatestBlockRisk[];
+  } catch (error) {
+    useDemoFallback(error);
+    return (await getDemoBlockRisk()).filter((row) => row.estate_id === estateId);
   }
-
-  return (data ?? []) as unknown as LatestBlockRisk[];
 }
 
 export async function getScoutingPriority(
   estateId: string
 ): Promise<ScoutingPriorityRow[]> {
-  if (USE_DEMO_DATA) {
-    const [priorityRows, latestRisk] = await Promise.all([
-      fetchJson<ScoutingPriorityRow[]>("/demo/scouting_priority_latest.json"),
-      getDemoBlockRisk(),
-    ]);
-    const blocksById = new Map(latestRisk.map((row) => [row.block_id, row]));
-
-    return sortScoutingPriority(
-      priorityRows.map((row) => {
-        const block = blocksById.get(row.block_id);
-
-        return {
-          ...row,
-          estate_id: block?.estate_id ?? estateId,
-          block_code: block?.block_code ?? row.block_id,
-          block_name: block?.block_name ?? null,
-        };
-      })
-    ).filter((row) => row.estate_id === estateId);
+  if (liveUnavailable) {
+    return getDemoScoutingPriority(estateId);
   }
 
-  const { data, error } = await getSupabase()
-    .from("latest_scouting_priority")
-    .select(SCOUTING_PRIORITY_COLUMNS)
-    .eq("estate_id", estateId)
-    .order("priority_rank", { ascending: true });
+  try {
+    const { data, error } = await getSupabase()
+      .from("latest_scouting_priority")
+      .select(SCOUTING_PRIORITY_COLUMNS)
+      .eq("estate_id", estateId)
+      .order("risk_score", { ascending: false });
 
-  if (error) {
-    throw error;
+    if (error) {
+      throw error;
+    }
+
+    if (!data?.length) {
+      throw new Error("Supabase returned no scouting priority rows");
+    }
+
+    if (!isDay2JuryReadyRiskData(data as unknown as ScoutingPriorityRow[])) {
+      throw new Error("Supabase scouting data is not Day 2 jury-ready");
+    }
+
+    return sortScoutingPriority(data as unknown as ScoutingPriorityRow[]);
+  } catch (error) {
+    useDemoFallback(error);
+    return getDemoScoutingPriority(estateId);
   }
-
-  return (data ?? []) as unknown as ScoutingPriorityRow[];
 }
 
 export async function getBlockDetail(blockId: string): Promise<LatestBlockRisk> {
-  if (USE_DEMO_DATA) {
+  if (liveUnavailable) {
     const block = (await getDemoBlockRisk()).find((row) => row.block_id === blockId);
 
     if (!block) {
@@ -203,35 +258,39 @@ export async function getBlockDetail(blockId: string): Promise<LatestBlockRisk> 
     return block;
   }
 
-  const { data, error } = await getSupabase()
-    .from("latest_block_risk")
-    .select(LATEST_BLOCK_RISK_COLUMNS)
-    .eq("block_id", blockId)
-    .maybeSingle();
+  try {
+    const { data, error } = await getSupabase()
+      .from("latest_block_risk")
+      .select(LATEST_BLOCK_RISK_COLUMNS)
+      .eq("block_id", blockId)
+      .maybeSingle();
 
-  if (error) {
-    throw error;
+    if (error) {
+      throw error;
+    }
+
+    if (!data) {
+      throw new Error(`Block not found: ${blockId}`);
+    }
+
+    return data as unknown as LatestBlockRisk;
+  } catch (error) {
+    useDemoFallback(error);
+    const block = (await getDemoBlockRisk()).find((row) => row.block_id === blockId);
+
+    if (!block) {
+      throw new Error(`Block not found: ${blockId}`);
+    }
+
+    return block;
   }
-
-  if (!data) {
-    throw new Error(`Block not found: ${blockId}`);
-  }
-
-  return data as unknown as LatestBlockRisk;
 }
 
 export async function submitFieldReport(
   payload: FieldReportPayload
 ): Promise<FieldReportRow> {
-  if (USE_DEMO_DATA) {
-    const now = new Date().toISOString();
-
-    return {
-      ...payload,
-      id: `demo-report-${Date.now()}`,
-      observed_at: now,
-      created_at: now,
-    };
+  if (liveUnavailable) {
+    return createDemoFieldReport(payload);
   }
 
   const insertPayload = {
@@ -249,19 +308,24 @@ export async function submitFieldReport(
     photo_url: payload.photo_url ?? null,
   };
 
-  const { data, error } = await getSupabase()
-    .from("field_reports")
-    .insert(insertPayload as never)
-    .select()
-    .single();
+  try {
+    const { data, error } = await getSupabase()
+      .from("field_reports")
+      .insert(insertPayload as never)
+      .select()
+      .single();
 
-  if (error) {
-    throw error;
+    if (error) {
+      throw error;
+    }
+
+    if (!data) {
+      throw new Error("Field report insert returned no row");
+    }
+
+    return data as unknown as FieldReportRow;
+  } catch (error) {
+    useDemoFallback(error);
+    return createDemoFieldReport(payload);
   }
-
-  if (!data) {
-    throw new Error("Field report insert returned no row");
-  }
-
-  return data as unknown as FieldReportRow;
 }

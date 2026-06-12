@@ -5,6 +5,7 @@ import {
   RISK_CATEGORIES,
   getEstateMetrics,
   getRiskColor,
+  isDay2JuryReadyRiskData,
   mergeDemoData,
   sortScoutingPriority,
 } from "./demoData";
@@ -50,29 +51,50 @@ describe("demo data utilities", () => {
     expect(first?.block_code).toBe("B-001");
     expect(first?.geometry?.type).toBe("Polygon");
     expect(first?.ndvi).toBeTypeOf("number");
-    expect(first?.risk_category).toBe("Normal");
+    expect(first?.risk_category).toBe("Priority Inspection");
     expect(first?.dominant_driver).toContain("rainfall");
+
+    const blockIds = new Set(
+      blocksGeojson.features.map(
+        (feature: { properties: { block_id: string } }) =>
+          feature.properties.block_id
+      )
+    );
+    expect(indicators.every((row: { block_id: string }) => blockIds.has(row.block_id))).toBe(
+      true
+    );
+    expect(riskScores.every((row: { block_id: string }) => blockIds.has(row.block_id))).toBe(
+      true
+    );
+    expect(priorityRows.every((row: { block_id: string }) => blockIds.has(row.block_id))).toBe(
+      true
+    );
+    expect(isDay2JuryReadyRiskData(riskScores)).toBe(true);
+    expect(isDay2JuryReadyRiskData(riskScores.slice(0, 3))).toBe(false);
   });
 
-  it("keeps metrics for all official categories even when counts are zero", () => {
+  it("keeps at least five blocks in every category for the jury story", () => {
     const rows = mergeDemoData(blocksGeojson, indicators, riskScores);
     const metrics = getEstateMetrics(rows);
 
     expect(metrics.totalBlocks).toBe(48);
-    expect(metrics.categoryCounts.Normal).toBeGreaterThan(0);
-    expect(metrics.categoryCounts.Watch).toBeGreaterThanOrEqual(0);
-    expect(metrics.categoryCounts.Warning).toBeGreaterThanOrEqual(0);
-    expect(metrics.categoryCounts["Priority Inspection"]).toBeGreaterThanOrEqual(
-      0
-    );
+    for (const category of RISK_CATEGORIES) {
+      expect(metrics.categoryCounts[category]).toBeGreaterThanOrEqual(5);
+    }
     expect(metrics.lastProcessed).toBe("2026-06-05");
   });
 
-  it("sorts scouting priorities by priority rank", () => {
+  it("sorts scouting priorities by risk score and reranks them", () => {
     const sorted = sortScoutingPriority(priorityRows);
 
     expect(sorted[0].priority_rank).toBe(1);
-    expect(sorted[0].block_id).toBe("B-041");
+    expect(sorted[0].block_id).toBe("B-037");
     expect(sorted[1].priority_rank).toBe(2);
+    expect(sorted[0].risk_score).toBeGreaterThanOrEqual(sorted[1].risk_score);
+    expect(
+      sorted.slice(0, 3).every((row) =>
+        ["Warning", "Priority Inspection"].includes(row.risk_category)
+      )
+    ).toBe(true);
   });
 });

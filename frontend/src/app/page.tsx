@@ -6,18 +6,27 @@ import { EstateMap } from "@/components/EstateMap";
 import { FieldVerificationForm } from "@/components/FieldVerificationForm";
 import { ScoutingPriorityList } from "@/components/ScoutingPriorityList";
 import { RiskBadge } from "@/components/RiskBadge";
-import { getEstateMetrics, RISK_CATEGORIES } from "@/lib/demoData";
+import { getEstateMetrics } from "@/lib/demoData";
 import {
   DEMO_ESTATE_ID,
+  getDataMode,
   getLatestBlockRisk,
   getScoutingPriority,
   submitFieldReport,
+  type DataMode,
   type FieldReportPayload,
   type LatestBlockRisk,
   type ScoutingPriorityRow,
 } from "@/lib/queries";
 
 type LoadState = "loading" | "ready" | "error";
+
+const METRIC_CATEGORIES = [
+  "Priority Inspection",
+  "Warning",
+  "Watch",
+  "Normal",
+] as const;
 
 function MetricCard({ label, value }: { label: string; value: React.ReactNode }) {
   return (
@@ -35,16 +44,26 @@ export default function Page() {
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showFieldVerification, setShowFieldVerification] = useState(false);
+  const [dataMode, setDataMode] = useState<DataMode>("demo");
+  const [submissionMessage, setSubmissionMessage] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
 
     async function loadDashboard() {
       try {
-        const [latestRisk, priority] = await Promise.all([
+        const initialDataMode = getDataMode();
+        let [latestRisk, priority] = await Promise.all([
           getLatestBlockRisk(DEMO_ESTATE_ID),
           getScoutingPriority(DEMO_ESTATE_ID),
         ]);
+
+        if (initialDataMode === "live" && getDataMode() === "demo") {
+          [latestRisk, priority] = await Promise.all([
+            getLatestBlockRisk(DEMO_ESTATE_ID),
+            getScoutingPriority(DEMO_ESTATE_ID),
+          ]);
+        }
 
         if (!active) {
           return;
@@ -53,6 +72,7 @@ export default function Page() {
         setBlocks(latestRisk);
         setPriorityRows(priority);
         setSelectedBlockId(priority[0]?.block_id ?? latestRisk[0]?.block_id ?? null);
+        setDataMode(getDataMode());
         setLoadState("ready");
       } catch (error) {
         if (!active) {
@@ -78,42 +98,63 @@ export default function Page() {
     [blocks, selectedBlockId]
   );
   const metrics = useMemo(() => getEstateMetrics(blocks), [blocks]);
+  const topPriority = priorityRows[0] ?? null;
 
   async function handleFieldSubmit(payload: FieldReportPayload) {
     await submitFieldReport(payload);
+    const currentDataMode = getDataMode();
+    setDataMode(currentDataMode);
+    setSubmissionMessage(
+      currentDataMode === "live"
+        ? "Field verification saved to Supabase."
+        : "Field verification saved in demo mode."
+    );
     setShowFieldVerification(false);
   }
 
   return (
     <main className="min-h-screen bg-[#eef3ed] text-crop-ink">
-      <div className="sticky top-0 z-10">
-      <header className=" flex flex-wrap items-center justify-between gap-3 border-b border-crop-line bg-white px-5 py-4">
-        <div>
-          <h1 className="text-xl font-bold">CropStress Insight</h1>
-          <p className="text-sm text-slate-600">Demo Estate</p>
-        </div>
-        <div className="text-right text-sm">
-          <div className="text-slate-500">Last processed date</div>
-          <div className="font-semibold">{metrics.lastProcessed}</div>
-        </div>
-      </header>
+      <div className="sticky top-0 z-10 shadow-sm">
+        <header className="flex flex-wrap items-center justify-between gap-3 border-b border-crop-line bg-white px-5 py-4">
+          <div>
+            <h1 className="text-xl font-bold">CropStress Insight</h1>
+            <p className="text-sm text-slate-600">
+              Which blocks should the field team inspect first today?
+            </p>
+          </div>
+          <div className="flex items-center gap-4 text-right text-sm">
+            <span
+              className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                dataMode === "live"
+                  ? "bg-emerald-100 text-emerald-800"
+                  : "bg-amber-100 text-amber-900"
+              }`}
+            >
+              {dataMode === "live" ? "Live Supabase" : "Synthetic demo fallback"}
+            </span>
+            <div>
+              <div className="text-slate-500">Last processed date</div>
+              <div className="font-semibold">{metrics.lastProcessed}</div>
+            </div>
+          </div>
+        </header>
 
-      <section className="grid border-b border-crop-line sm:grid-cols-2 lg:grid-cols-6">
-        <MetricCard label="Total Blocks" value={metrics.totalBlocks} />
-        {RISK_CATEGORIES.map((category) => (
-          <MetricCard
-            key={category}
-            label={category}
-            value={
-              <span className="inline-flex items-center gap-2">
-                {metrics.categoryCounts[category]}
-                <RiskBadge category={category} />
-              </span>
-            }
-          />
-        ))}
-        <MetricCard label="Last Processed" value={metrics.lastProcessed} />
-      </section>
+        <section className="grid border-b border-crop-line sm:grid-cols-2 lg:grid-cols-6">
+          <MetricCard label="Total Blocks" value={metrics.totalBlocks} />
+          {METRIC_CATEGORIES.map((category) => (
+            <MetricCard
+              key={category}
+              label={category}
+              value={
+                <span className="inline-flex items-center gap-2">
+                  {metrics.categoryCounts[category]}
+                  <RiskBadge category={category} />
+                </span>
+              }
+            />
+          ))}
+          <MetricCard label="Last Processed" value={metrics.lastProcessed} />
+        </section>
       </div>
 
       {loadState === "error" ? (
@@ -128,7 +169,42 @@ export default function Page() {
         </section>
       ) : null}
 
-      <section className="grid h-[50vh] gap-px bg-crop-line lg:grid-cols-[minmax(20rem,28rem)_1fr_minmax(20rem,26rem)]">
+      {submissionMessage ? (
+        <div className="fixed right-4 top-4 z-[60] flex items-center gap-3 rounded border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-900 shadow-lg">
+          {submissionMessage}
+          <button
+            aria-label="Dismiss submission message"
+            className="font-bold text-emerald-700"
+            type="button"
+            onClick={() => setSubmissionMessage(null)}
+          >
+            Close
+          </button>
+        </div>
+      ) : null}
+
+      {topPriority ? (
+        <section className="flex flex-wrap items-center justify-between gap-3 border-b border-red-200 bg-red-50 px-5 py-3 text-sm">
+          <div>
+            <span className="font-bold text-red-800">Inspect first: </span>
+            <button
+              className="font-bold text-red-900 underline decoration-red-300 underline-offset-2"
+              type="button"
+              onClick={() => setSelectedBlockId(topPriority.block_id)}
+            >
+              {topPriority.block_code ?? topPriority.block_id}
+            </button>
+            <span className="ml-2 text-red-800">
+              {topPriority.dominant_driver ?? "Stress signal detected"}
+            </span>
+          </div>
+          <span className="font-semibold text-red-900">
+            {topPriority.recommended_action}
+          </span>
+        </section>
+      ) : null}
+
+      <section className="grid min-h-[42rem] gap-px bg-crop-line lg:h-[calc(100vh-13rem)] lg:grid-cols-[minmax(20rem,28rem)_1fr_minmax(20rem,26rem)]">
         <div className="overflow-y-auto bg-white">
           <ScoutingPriorityList
             rows={priorityRows}
@@ -141,31 +217,37 @@ export default function Page() {
           selectedBlockId={selectedBlockId}
           onSelectBlock={setSelectedBlockId}
         />
-        <div className="overflow-y-auto bg-white" >
-          <BlockDetailPanel block={selectedBlock} onVerifyField={() => setShowFieldVerification(true)} />
+        <div className="overflow-y-auto bg-white">
+          <BlockDetailPanel
+            block={selectedBlock}
+            onVerifyField={() => setShowFieldVerification(true)}
+          />
         </div>
       </section>
 
-      {showFieldVerification && (
+      {showFieldVerification ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
-          <div className="h-50px w-full max-w-4xl rounded-lg bg-white shadow-lg overflow-hidden flex flex-col">
+          <div className="flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-lg bg-white shadow-lg">
             <div className="flex items-center justify-between border-b border-crop-line px-6 py-4">
               <h2 className="text-lg font-bold">Field Verification</h2>
               <button
+                aria-label="Close field verification"
+                className="text-sm font-semibold text-slate-500 hover:text-slate-700"
+                type="button"
                 onClick={() => setShowFieldVerification(false)}
-                className="text-slate-500 hover:text-slate-700"
               >
-                ✕
+                Close
               </button>
             </div>
-            <div className="overflow-y-auto flex-1">
-              <div className="p-6">
-                <FieldVerificationForm block={selectedBlock} onSubmit={handleFieldSubmit} />
-              </div>
+            <div className="min-h-0 flex-1 overflow-y-auto p-6">
+              <FieldVerificationForm
+                block={selectedBlock}
+                onSubmit={handleFieldSubmit}
+              />
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </main>
   );
 }

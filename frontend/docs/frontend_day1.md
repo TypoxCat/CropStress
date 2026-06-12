@@ -23,6 +23,11 @@ Run `npm run sync:geospatial` from `frontend/` to refresh the local JSON files
 and generated map images. The command also runs automatically before
 `npm run dev` and `npm run build`.
 
+For the Day 2 jury demo, risk JSON is replaced only when the incoming
+geospatial dataset has matching block IDs, at least five blocks in every risk
+category, and three urgent top-ranked blocks. Images and block boundaries still
+sync when incoming risk data is not jury-ready.
+
 `src/lib/queries.ts` keeps the backend-compatible function names:
 
 - `getLatestBlockRisk(estateId)`

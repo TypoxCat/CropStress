@@ -87,6 +87,7 @@ describe("dashboard components", () => {
     expect(screen.getByText("Recommended action")).toBeTruthy();
     expect(screen.getByText("NDVI value")).toBeTruthy();
     expect(screen.getByText("NDMI value")).toBeTruthy();
+    expect(screen.getByText("Hotspots (7d)")).toBeTruthy();
     expect(screen.getByText("Rainfall deficit")).toBeTruthy();
     expect(screen.getByText("Nearest hotspot distance")).toBeTruthy();
     expect(screen.getByText("Quality flag")).toBeTruthy();
@@ -134,6 +135,54 @@ describe("dashboard components", () => {
     expect(screen.getByText("NDVI satellite index · Risk overlay 50%")).toBeTruthy();
 
     await user.click(screen.getByRole("button", { name: "Select B-041" }));
+    expect(onSelectBlock).toHaveBeenCalledWith("B-041");
+  });
+
+  it("renders and selects every part of a MultiPolygon block", async () => {
+    const onSelectBlock = vi.fn();
+    const user = userEvent.setup();
+    const multiPolygonBlock: LatestBlockRisk = {
+      ...block,
+      geometry: {
+        type: "MultiPolygon",
+        coordinates: [
+          [
+            [
+              [101.38, -0.52],
+              [101.39, -0.52],
+              [101.39, -0.51],
+              [101.38, -0.51],
+              [101.38, -0.52],
+            ],
+          ],
+          [
+            [
+              [101.4, -0.5],
+              [101.41, -0.5],
+              [101.41, -0.49],
+              [101.4, -0.49],
+              [101.4, -0.5],
+            ],
+          ],
+        ],
+      },
+    };
+
+    const { container } = render(
+      <EstateMap
+        blocks={[multiPolygonBlock]}
+        selectedBlockId={multiPolygonBlock.block_id}
+        onSelectBlock={onSelectBlock}
+      />
+    );
+
+    expect(
+      container.querySelectorAll('polygon[data-risk-overlay="true"]')
+    ).toHaveLength(2);
+
+    await user.click(
+      screen.getByRole("button", { name: "Select B-041 part 2" })
+    );
     expect(onSelectBlock).toHaveBeenCalledWith("B-041");
   });
 

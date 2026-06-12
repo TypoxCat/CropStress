@@ -37,9 +37,10 @@ export function FieldVerificationForm({
   const [soilCondition, setSoilCondition] = useState("");
   const [drainageCondition, setDrainageCondition] = useState("");
   const [notes, setNotes] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">(
-    "idle"
-  );
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -49,18 +50,27 @@ export function FieldVerificationForm({
     }
 
     setStatus("submitting");
-    await onSubmit({
-      block_id: block.block_id,
-      observer_name: observerName,
-      stress_confirmed: stressConfirmed,
-      stress_type: stressType,
-      severity,
-      soil_condition: soilCondition,
-      drainage_condition: drainageCondition,
-      notes,
-      photo_url: null,
-    });
-    setStatus("success");
+    setErrorMessage(null);
+
+    try {
+      await onSubmit({
+        block_id: block.block_id,
+        observer_name: observerName,
+        stress_confirmed: stressConfirmed,
+        stress_type: stressType,
+        severity,
+        soil_condition: soilCondition,
+        drainage_condition: drainageCondition,
+        notes,
+        photo_url: null,
+      });
+      setStatus("success");
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error ? error.message : "Field verification failed to save"
+      );
+      setStatus("error");
+    }
   }
 
   return (
@@ -78,6 +88,7 @@ export function FieldVerificationForm({
           Observer name
           <input
             className="rounded border border-crop-line px-3 py-2"
+            required
             value={observerName}
             onChange={(event) => setObserverName(event.target.value)}
           />
@@ -166,6 +177,11 @@ export function FieldVerificationForm({
         {status === "success" ? (
           <p className="text-sm font-medium text-crop-field lg:col-span-6">
             Field verification saved for demo review.
+          </p>
+        ) : null}
+        {status === "error" ? (
+          <p className="text-sm font-medium text-red-700 lg:col-span-6">
+            {errorMessage}
           </p>
         ) : null}
       </form>

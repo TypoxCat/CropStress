@@ -37,9 +37,18 @@ export function BlockDetailPanel({ block, onVerifyField }: BlockDetailPanelProps
 
   return (
     <section className="p-4">
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-crop-ink">
-        Selected Block Detail
-      </h2>
+      <div className="rounded-lg bg-crop-ink p-4 text-white">
+        <p className="text-xs font-semibold uppercase tracking-wider text-emerald-100">
+          Selected inspection target
+        </p>
+        <div className="mt-2 flex items-center justify-between gap-3">
+          <h2 className="text-2xl font-bold">{block.block_code}</h2>
+          <RiskBadge category={block.risk_category} />
+        </div>
+        <p className="mt-3 text-sm text-emerald-50">
+          {block.recommended_action ?? "No action recommended"}
+        </p>
+      </div>
       <dl className="mt-3">
         <DetailRow label="Block code" value={block.block_code} />
         <DetailRow
@@ -57,6 +66,10 @@ export function BlockDetailPanel({ block, onVerifyField }: BlockDetailPanelProps
         />
         <DetailRow label="NDVI value" value={formatNumber(block.ndvi)} />
         <DetailRow label="NDMI value" value={formatNumber(block.ndmi)} />
+        <DetailRow
+          label="Hotspots (7d)"
+          value={block.hotspot_count_7d ?? "Unavailable"}
+        />
         <DetailRow
           label="Rainfall deficit"
           value={

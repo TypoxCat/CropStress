@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { getRiskColor } from "@/lib/riskColors";
+import { getRiskColor, RISK_CATEGORIES } from "@/lib/riskColors";
 import type { LatestBlockRisk } from "@/lib/queries";
 
 type EstateMapProps = {
@@ -25,17 +25,26 @@ const IMAGE_WIDTH = 1600;
 const IMAGE_HEIGHT = 1313;
 const IMAGE_PADDING_METERS = 500;
 
-function getPolygon(block: LatestBlockRisk): Point[] {
-  if (!block.geometry || block.geometry.type !== "Polygon") {
+function getPolygons(block: LatestBlockRisk): Point[][] {
+  if (!block.geometry) {
     return [];
   }
 
-  const rings = block.geometry.coordinates as Point[][];
-  return rings[0] ?? [];
+  if (block.geometry.type === "Polygon") {
+    const rings = block.geometry.coordinates as Point[][];
+    return rings[0] ? [rings[0]] : [];
+  }
+
+  if (block.geometry.type === "MultiPolygon") {
+    const polygons = block.geometry.coordinates as Point[][][];
+    return polygons.flatMap((rings) => (rings[0] ? [rings[0]] : []));
+  }
+
+  return [];
 }
 
 function getBounds(blocks: LatestBlockRisk[]) {
-  const points = blocks.flatMap(getPolygon);
+  const points = blocks.flatMap((block) => getPolygons(block).flat());
 
   if (points.length === 0) {
     return {
@@ -104,7 +113,7 @@ export function EstateMap({
   }
 
   return (
-    <section className="flex h-[100vh] min-h-[28rem] flex-col bg-white">
+    <section className="flex h-full min-h-[28rem] flex-col bg-white">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-crop-line px-4 py-3">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-crop-ink">
           Estate Map
@@ -137,21 +146,19 @@ export function EstateMap({
               {" · Risk overlay 50%"}
             </span>
           ) : null}
-          {["Normal", "Watch", "Warning", "Priority Inspection"].map(
-            (category) => {
-              const color = getRiskColor(category);
+          {RISK_CATEGORIES.map((category) => {
+            const color = getRiskColor(category);
 
-              return (
-                <span key={category} className="flex items-center gap-1">
-                  <span
-                    className="h-3 w-3 rounded-sm"
-                    style={{ backgroundColor: color.hex }}
-                  />
-                  {color.label}
-                </span>
-              );
-            }
-          )}
+            return (
+              <span key={category} className="flex items-center gap-1">
+                <span
+                  className="h-3 w-3 rounded-sm"
+                  style={{ backgroundColor: color.hex }}
+                />
+                {color.label}
+              </span>
+            );
+          })}
         </div>
         <span>{observationDate || "Date unavailable"}</span>
       </div>
@@ -172,7 +179,7 @@ export function EstateMap({
             />
           ) : null}
           {blocks.map((block) => {
-            const points = getPolygon(block);
+            const polygons = getPolygons(block);
             const selected = block.block_id === selectedBlockId;
             const color = getRiskColor(block.risk_category);
             const overlayOpacity =
@@ -188,33 +195,39 @@ export function EstateMap({
 
             return (
               <g key={block.block_id}>
-                <polygon
-                  data-risk-overlay="true"
-                  fill={color.hex}
-                  opacity={overlayOpacity}
-                  points={points.map(project).join(" ")}
-                  stroke={stroke}
-                  strokeWidth={selected ? 8 : 3}
-                  vectorEffect="non-scaling-stroke"
-                />
                 <title>{`${block.block_code}: ${color.label}`}</title>
-                <polygon
-                  aria-label={`Select ${block.block_code}`}
-                  className="cursor-pointer"
-                  fill="transparent"
-                  points={points.map(project).join(" ")}
-                  role="button"
-                  stroke="transparent"
-                  strokeWidth="12"
-                  tabIndex={0}
-                  onClick={() => onSelectBlock(block.block_id)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === " ") {
-                      event.preventDefault();
-                      onSelectBlock(block.block_id);
-                    }
-                  }}
-                />
+                {polygons.map((points, polygonIndex) => (
+                  <g key={`${block.block_id}-${polygonIndex}`}>
+                    <polygon
+                      data-risk-overlay="true"
+                      fill={color.hex}
+                      opacity={overlayOpacity}
+                      points={points.map(project).join(" ")}
+                      stroke={stroke}
+                      strokeWidth={selected ? 8 : 3}
+                      vectorEffect="non-scaling-stroke"
+                    />
+                    <polygon
+                      aria-label={`Select ${block.block_code}${
+                        polygons.length > 1 ? ` part ${polygonIndex + 1}` : ""
+                      }`}
+                      className="cursor-pointer"
+                      fill="transparent"
+                      points={points.map(project).join(" ")}
+                      role="button"
+                      stroke="transparent"
+                      strokeWidth="12"
+                      tabIndex={0}
+                      onClick={() => onSelectBlock(block.block_id)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          onSelectBlock(block.block_id);
+                        }
+                      }}
+                    />
+                  </g>
+                ))}
               </g>
             );
           })}
