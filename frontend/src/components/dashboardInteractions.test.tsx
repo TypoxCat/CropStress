@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 import { BlockDetailPanel } from "./BlockDetailPanel";
 import { EstateMap } from "./EstateMap";
 import { FieldVerificationForm } from "./FieldVerificationForm";
+import { RiskBadge } from "./RiskBadge";
 import { ScoutingPriorityList } from "./ScoutingPriorityList";
 import type { LatestBlockRisk, ScoutingPriorityRow } from "@/lib/queries";
 
@@ -54,6 +55,41 @@ const priorityRows: ScoutingPriorityRow[] = [
 ];
 
 describe("dashboard components", () => {
+  it("keeps the risk explanation tooltip inside the viewport", async () => {
+    const user = userEvent.setup();
+    const originalInnerWidth = window.innerWidth;
+
+    Object.defineProperty(window, "innerWidth", {
+      configurable: true,
+      value: 320,
+    });
+
+    render(<RiskBadge category="Watch" score={0.2592} />);
+
+    const badge = screen.getByLabelText(/Watch risk/i);
+    vi.spyOn(badge, "getBoundingClientRect").mockReturnValue({
+      bottom: 40,
+      height: 24,
+      left: 290,
+      right: 320,
+      top: 16,
+      width: 30,
+      x: 290,
+      y: 16,
+      toJSON: () => ({}),
+    });
+
+    await user.hover(badge);
+
+    const tooltip = await screen.findByRole("tooltip");
+    expect(tooltip.style.left).toBe("20px");
+
+    Object.defineProperty(window, "innerWidth", {
+      configurable: true,
+      value: originalInnerWidth,
+    });
+  });
+
   it("renders priority columns and selects a row", async () => {
     const onSelectBlock = vi.fn();
     const user = userEvent.setup();
@@ -71,6 +107,12 @@ describe("dashboard components", () => {
     expect(screen.getByText("Risk")).toBeTruthy();
     expect(screen.getByText("Driver")).toBeTruthy();
     expect(screen.getByText("Action")).toBeTruthy();
+    expect(
+      screen.getByLabelText(/Watch risk.*score range 0.25-0.44/i)
+    ).toBeTruthy();
+    expect(
+      screen.getByLabelText(/30% vegetation.*25% rainfall/i)
+    ).toBeTruthy();
 
     await user.click(screen.getByRole("button", { name: /select B-041/i }));
 
@@ -82,6 +124,7 @@ describe("dashboard components", () => {
 
     expect(screen.getByText("Block code")).toBeTruthy();
     expect(screen.getByText("Risk category")).toBeTruthy();
+    expect(screen.getAllByLabelText(/Watch risk/i).length).toBeGreaterThan(0);
     expect(screen.getByText("Risk score")).toBeTruthy();
     expect(screen.getByText("Dominant driver")).toBeTruthy();
     expect(screen.getByText("Recommended action")).toBeTruthy();

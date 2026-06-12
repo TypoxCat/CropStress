@@ -12,6 +12,12 @@ export type RiskColor = {
   borderClass: string;
 };
 
+export type RiskThreshold = {
+  category: RiskCategory;
+  range: string;
+  explanation: string;
+};
+
 export const RISK_CATEGORIES: RiskCategory[] = [
   "Normal",
   "Watch",
@@ -50,6 +56,29 @@ export const RISK_COLORS: Record<RiskCategory, RiskColor> = {
   },
 };
 
+export const RISK_THRESHOLDS: RiskThreshold[] = [
+  {
+    category: "Normal",
+    range: "0.00-0.24",
+    explanation: "low combined stress signal",
+  },
+  {
+    category: "Watch",
+    range: "0.25-0.44",
+    explanation: "early stress signal worth monitoring",
+  },
+  {
+    category: "Warning",
+    range: "0.45-0.64",
+    explanation: "clear stress signal that should be checked soon",
+  },
+  {
+    category: "Priority Inspection",
+    range: "0.65-1.00",
+    explanation: "urgent stress signal for field inspection",
+  },
+];
+
 export function isRiskCategory(value: unknown): value is RiskCategory {
   return (
     typeof value === "string" &&
@@ -63,4 +92,18 @@ export function getRiskColor(category: RiskCategory | string | null): RiskColor 
   }
 
   return RISK_COLORS.Normal;
+}
+
+export function getRiskThreshold(
+  category: RiskCategory | string | null
+): RiskThreshold {
+  const label = getRiskColor(category).label;
+  return (
+    RISK_THRESHOLDS.find((threshold) => threshold.category === label) ??
+    RISK_THRESHOLDS[0]
+  );
+}
+
+export function getRiskFormulaLabel(): string {
+  return "Risk score = 30% vegetation + 30% moisture + 25% rainfall + 15% fire";
 }

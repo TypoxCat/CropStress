@@ -43,7 +43,12 @@ export function BlockDetailPanel({ block, onVerifyField }: BlockDetailPanelProps
         </p>
         <div className="mt-2 flex items-center justify-between gap-3">
           <h2 className="text-2xl font-bold">{block.block_code}</h2>
-          <RiskBadge category={block.risk_category} />
+          <RiskBadge
+            category={block.risk_category}
+            dominantDriver={block.dominant_driver}
+            recommendedAction={block.recommended_action}
+            score={block.risk_score}
+          />
         </div>
         <p className="mt-3 text-sm text-emerald-50">
           {block.recommended_action ?? "No action recommended"}
@@ -53,7 +58,14 @@ export function BlockDetailPanel({ block, onVerifyField }: BlockDetailPanelProps
         <DetailRow label="Block code" value={block.block_code} />
         <DetailRow
           label="Risk category"
-          value={<RiskBadge category={block.risk_category} />}
+          value={
+            <RiskBadge
+              category={block.risk_category}
+              dominantDriver={block.dominant_driver}
+              recommendedAction={block.recommended_action}
+              score={block.risk_score}
+            />
+          }
         />
         <DetailRow label="Risk score" value={formatNumber(block.risk_score, 3)} />
         <DetailRow

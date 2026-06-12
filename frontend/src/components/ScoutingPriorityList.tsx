@@ -90,7 +90,12 @@ export function ScoutingPriorityList({
                     </span>
                   </td>
                   <td className="px-3 py-2">
-                    <RiskBadge category={row.risk_category} />
+                    <RiskBadge
+                      category={row.risk_category}
+                      dominantDriver={row.dominant_driver}
+                      recommendedAction={row.recommended_action}
+                      score={row.risk_score}
+                    />
                     <div className="mt-1 font-mono text-xs text-slate-500">
                       Score {(row.risk_score ?? 0).toFixed(3)}
                     </div>

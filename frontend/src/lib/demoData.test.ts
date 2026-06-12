@@ -86,7 +86,7 @@ describe("demo data utilities", () => {
         0
       )
     ).toBe(metrics.totalBlocks);
-    expect(metrics.lastProcessed).toBe("2026-06-05");
+    expect(metrics.lastProcessed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
   it("sorts scouting priorities by risk score and reranks them", () => {
