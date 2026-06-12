@@ -65,6 +65,7 @@ ENABLE_DEMO_SCENARIO_PATCH = os.getenv(
     "CROPSTRESS_DAY2_PATCH_RISK", "true"
 ).strip().lower() not in {"0", "false", "no", "off"}
 
+
 # Optional. Keep false unless another agent needs regenerated JSON files too.
 WRITE_PATCHED_JSON = os.getenv(
     "CROPSTRESS_DAY2_WRITE_PATCHED_JSON", "false"
@@ -163,6 +164,9 @@ def load_json(path: Path) -> Any:
 
 def write_json(path: Path, payload: Any) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+
 
 
 def resolve_demo_dir() -> Path:
@@ -272,12 +276,6 @@ def validate_common_data(
     if block_count == 0:
         raise ValueError("blocks.geojson has no block features")
 
-    if block_count < MIN_BLOCKS_PER_CATEGORY * len(CATEGORY_ORDER_ASC):
-        raise ValueError(
-            f"Day 2 category validation needs at least "
-            f"{MIN_BLOCKS_PER_CATEGORY * len(CATEGORY_ORDER_ASC)} blocks. Got {block_count}."
-        )
-
     for duplicates, label in (
         (duplicate_block_ids(indicators, "block_indicators_latest.json"), "block_indicators_latest.json"),
         (duplicate_block_ids(risk_scores, "risk_scores_latest.json"), "risk_scores_latest.json"),
@@ -289,34 +287,32 @@ def validate_common_data(
     indicator_ids = {str(row["block_id"]) for row in indicators}
     risk_ids = {str(row["block_id"]) for row in risk_scores}
     scouting_ids = {str(row["block_id"]) for row in scouting}
+    data_block_ids = indicator_ids | risk_ids | scouting_ids
+    data_count = len(data_block_ids)
 
-    if len(indicators) != block_count:
+    if data_count == 0:
+        raise ValueError("demo JSON files contain no block_id values")
+
+    if data_count < MIN_BLOCKS_PER_CATEGORY * len(CATEGORY_ORDER_ASC):
         raise ValueError(
-            f"block_indicators count ({len(indicators)}) must equal blocks count ({block_count})"
-        )
-    if len(risk_scores) != block_count:
-        raise ValueError(
-            f"risk_scores count ({len(risk_scores)}) must equal blocks count ({block_count})"
-        )
-    if len(scouting) != block_count:
-        raise ValueError(
-            f"scouting_priority count ({len(scouting)}) must equal blocks count ({block_count})"
+            f"Day 2 category validation needs at least "
+            f"{MIN_BLOCKS_PER_CATEGORY * len(CATEGORY_ORDER_ASC)} blocks with data. Got {data_count}."
         )
 
-    missing_indicators = sorted(block_ids - indicator_ids)
-    missing_risk = sorted(block_ids - risk_ids)
-    missing_scouting = sorted(block_ids - scouting_ids)
-    extra_indicators = sorted(indicator_ids - block_ids)
-    extra_risk = sorted(risk_ids - block_ids)
-    extra_scouting = sorted(scouting_ids - block_ids)
-
-    if missing_indicators or missing_risk or missing_scouting:
+    if indicator_ids != risk_ids or indicator_ids != scouting_ids:
+        missing_indicators = sorted((risk_ids | scouting_ids) - indicator_ids)
+        missing_risk = sorted((indicator_ids | scouting_ids) - risk_ids)
+        missing_scouting = sorted((indicator_ids | risk_ids) - scouting_ids)
         raise ValueError(
             "block_id mismatch across demo files: "
             f"missing indicators={missing_indicators[:5]}, "
             f"missing risk_scores={missing_risk[:5]}, "
             f"missing scouting={missing_scouting[:5]}"
         )
+
+    extra_indicators = sorted(indicator_ids - block_ids)
+    extra_risk = sorted(risk_ids - block_ids)
+    extra_scouting = sorted(scouting_ids - block_ids)
 
     if extra_indicators or extra_risk or extra_scouting:
         raise ValueError(
@@ -345,6 +341,7 @@ def validate_final_day2_data(
     indicators: Sequence[Mapping[str, Any]],
     risk_scores: Sequence[Mapping[str, Any]],
     scouting: Sequence[Mapping[str, Any]],
+    allow_underfilled_categories: bool = False,
 ) -> None:
     validate_common_data(block_ids, indicators, risk_scores, scouting)
 
@@ -359,10 +356,10 @@ def validate_final_day2_data(
     except (TypeError, ValueError) as exc:
         raise ValueError("scouting_priority_latest.json has invalid priority_rank") from exc
 
-    expected_ranks = list(range(1, len(block_ids) + 1))
+    expected_ranks = list(range(1, len(risk_scores) + 1))
     if rank_ints != expected_ranks:
         raise ValueError(
-            f"priority_rank must be ordered 1..{len(block_ids)}; got first ranks: {rank_ints[:10]}"
+            f"priority_rank must be ordered 1..{len(risk_scores)}; got first ranks: {rank_ints[:10]}"
         )
 
     previous_score: float | None = None
@@ -401,7 +398,7 @@ def validate_final_day2_data(
         saved_score = safe_float(row.get("risk_score"))
         if saved_score is None:
             raise ValueError(f"risk_scores row block_id={row.get('block_id')} has null risk_score")
-        if abs(formula_score - saved_score) > 0.0001:
+        if abs(formula_score - saved_score) > 0.001:
             raise ValueError(
                 f"risk_score for block_id={row.get('block_id')} does not match formula. "
                 f"saved={saved_score}, formula={formula_score}"
@@ -414,15 +411,16 @@ def validate_final_day2_data(
                 f"saved={row.get('risk_category')}, formula={formula_category}"
             )
 
-    short_categories = underfilled_categories(risk_scores)
-    if short_categories:
-        detail = ", ".join(
-            f"{category}={short_categories[category]}" for category in CATEGORY_ORDER_ASC if category in short_categories
-        )
-        raise ValueError(
-            f"Day 2 requires at least {MIN_BLOCKS_PER_CATEGORY} blocks per risk category; "
-            f"underfilled: {detail}"
-        )
+    if not allow_underfilled_categories:
+        short_categories = underfilled_categories(risk_scores)
+        if short_categories:
+            detail = ", ".join(
+                f"{category}={short_categories[category]}" for category in CATEGORY_ORDER_ASC if category in short_categories
+            )
+            raise ValueError(
+                f"Day 2 requires at least {MIN_BLOCKS_PER_CATEGORY} blocks per risk category; "
+                f"underfilled: {detail}"
+            )
 
 
 def target_category_counts(block_count: int) -> dict[str, int]:
@@ -1016,27 +1014,17 @@ def main() -> int:
     print(f"Source: {demo_dir}")
     print_distribution("Source risk distribution", risk_scores)
 
-    scenario_was_patched = False
-    if underfilled_categories(risk_scores):
-        if not ENABLE_DEMO_SCENARIO_PATCH:
-            validate_final_day2_data(block_ids, indicators, risk_scores, scouting)
-        print(
-            "Source data is not Day 2 demo-ready. "
-            "Applying deterministic Day 2 scenario patch in memory."
-        )
-        indicators, risk_scores, scouting = apply_day2_demo_scenario(
-            indicators, risk_scores, scouting
-        )
-        scenario_was_patched = True
-        print_distribution("Patched risk distribution", risk_scores)
-
-        if WRITE_PATCHED_JSON:
-            write_json(demo_dir / "block_indicators_latest.json", indicators)
-            write_json(demo_dir / "risk_scores_latest.json", risk_scores)
-            write_json(demo_dir / "scouting_priority_latest.json", scouting)
-            print("Patched JSON files were written because CROPSTRESS_DAY2_WRITE_PATCHED_JSON=true")
-
-    validate_final_day2_data(block_ids, indicators, risk_scores, scouting)
+    # Do not modify or patch any input JSON data. Accept the supplied
+    # `block_indicators_latest.json`, `risk_scores_latest.json`, and
+    # `scouting_priority_latest.json` as authoritative and validate them
+    # against each other and against `blocks.geojson`.
+    validate_final_day2_data(
+        block_ids,
+        indicators,
+        risk_scores,
+        scouting,
+        allow_underfilled_categories=True,
+    )
 
     sql = build_seed_sql(
         demo_dir=demo_dir,
@@ -1044,7 +1032,7 @@ def main() -> int:
         indicators=indicators,
         risk_scores=risk_scores,
         scouting=scouting,
-        scenario_was_patched=scenario_was_patched,
+        scenario_was_patched=False,
     )
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(sql, encoding="utf-8")

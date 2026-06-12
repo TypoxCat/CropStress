@@ -94,7 +94,7 @@ if (validDay2Data) {
 }
 
 const imageFiles = (await readdir(join(geospatialDir, "images"))).filter(
-  (fileName) => /^(real|ndvi|ndmi)_map_\d{4}-\d{2}-\d{2}\.png$/.test(fileName)
+  (fileName) => /^(real|ndvi|ndmi)_map_2026-06-05.png$/.test(fileName)
 );
 
 await Promise.all(
