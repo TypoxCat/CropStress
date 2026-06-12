@@ -1,5 +1,5 @@
 /**
- * CropStress Insight Day 1 — Supabase query contract.
+ * CropStress Insight Day 2 — Supabase query contract.
  *
  * Copy into a Next.js app as `src/lib/queries.ts` when Agent C creates the frontend.
  *
@@ -17,7 +17,7 @@
 import { createClient } from "@supabase/supabase-js";
 
 /**
- * Demo estate id used in Day 1 seed data.
+ * Demo estate id used in Day 2 seed data.
  */
 export const DEMO_ESTATE_ID = "estate_demo_01";
 
@@ -89,11 +89,13 @@ export type ScoutingPriorityRow = {
   block_code: string;
   block_name: string | null;
   risk_score_id: string;
+  scouting_task_id: string | null;
   score_date: string;
   risk_score: number | null;
   risk_category: RiskCategory | string | null;
   dominant_driver: string | null;
   recommended_action: string | null;
+  task_status: string | null;
 };
 
 /**
@@ -170,11 +172,13 @@ const SCOUTING_PRIORITY_COLUMNS = `
   block_code,
   block_name,
   risk_score_id,
+  scouting_task_id,
   score_date,
   risk_score,
   risk_category,
   dominant_driver,
-  recommended_action
+  recommended_action,
+  task_status
 `;
 
 type SupabaseClientInstance = ReturnType<typeof createClient>;

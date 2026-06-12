@@ -30,9 +30,13 @@ import os
 import ee
 from dotenv import load_dotenv
 
+import urllib.request
 
 BLOCKS_PATH = Path("data/demo/blocks.geojson")
 OUTPUT_DIR = Path("data/demo")
+IMAGE_DIR = Path("data/images")
+IMAGE_PADDING_METERS = 500
+IMAGE_DIMENSIONS = 1600
 
 load_dotenv()
 
@@ -119,6 +123,118 @@ def sentinel2_index_composite(start_date: date, end_date: date, aoi: ee.Geometry
 
     return ndvi.addBands(ndmi)
 
+def sentinel2_rgb_composite(start_date: date, end_date: date, aoi: ee.Geometry) -> ee.Image:
+    collection = (
+        ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED")
+        .filterBounds(aoi)
+        .filterDate(start_date.isoformat(), end_date.isoformat())
+        .filter(ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE", 80))
+        .map(mask_sentinel2_clouds)
+    )
+
+    return collection.median().select(["B4", "B3", "B2"])
+
+
+def padded_aoi(aoi: ee.Geometry, padding_meters: int = IMAGE_PADDING_METERS) -> ee.Geometry:
+    """
+    Membuat bounding box yang menutup semua koordinat blocks.geojson,
+    lalu ditambah padding dalam meter.
+    """
+    return aoi.bounds(maxError=1).buffer(padding_meters).bounds(maxError=1)
+
+
+def block_outline(blocks_fc: ee.FeatureCollection, width: int = 3) -> ee.Image:
+    """
+    Membuat outline putih untuk batas block agar terlihat di atas map.
+    """
+    return (
+        ee.Image()
+        .byte()
+        .paint(featureCollection=blocks_fc, color=1, width=width)
+        .visualize(palette=["ffffff"])
+    )
+
+
+def save_ee_png(image: ee.Image, output_path: Path, region: ee.Geometry, dimensions: int = IMAGE_DIMENSIONS) -> None:
+    """
+    Simpan ee.Image yang sudah divisualisasikan sebagai PNG lokal.
+    """
+    url = image.getThumbURL(
+        {
+            "region": region,
+            "dimensions": dimensions,
+            "format": "png",
+        }
+    )
+
+    urllib.request.urlretrieve(url, output_path)
+
+
+def save_map_images(
+    rgb_image: ee.Image,
+    index_image: ee.Image,
+    blocks_fc: ee.FeatureCollection,
+    aoi: ee.Geometry,
+) -> None:
+    IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+
+    region = padded_aoi(aoi)
+    outline = block_outline(blocks_fc)
+
+    real_map = (
+        rgb_image.visualize(
+            bands=["B4", "B3", "B2"],
+            min=0.02,
+            max=0.35,
+            gamma=1.2,
+        )
+        .blend(outline)
+    )
+
+    ndvi_map = (
+        index_image.select("ndvi")
+        .visualize(
+            min=0.0,
+            max=0.9,
+            palette=[
+                "8b0000",  # very low vegetation
+                "d73027",
+                "fee08b",
+                "d9ef8b",
+                "1a9850",  # high vegetation
+                "006400",
+            ],
+        )
+        .blend(outline)
+    )
+
+    ndmi_map = (
+        index_image.select("ndmi")
+        .visualize(
+            min=-0.4,
+            max=0.6,
+            palette=[
+                "8c510a",  # dry
+                "d8b365",
+                "f6e8c3",
+                "c7eae5",
+                "5ab4ac",
+                "01665e",  # wetter
+            ],
+        )
+        .blend(outline)
+    )
+
+    date_tag = OBSERVATION_DATE.isoformat()
+
+    save_ee_png(real_map, IMAGE_DIR / f"real_map_{date_tag}.png", region)
+    save_ee_png(ndvi_map, IMAGE_DIR / f"ndvi_map_{date_tag}.png", region)
+    save_ee_png(ndmi_map, IMAGE_DIR / f"ndmi_map_{date_tag}.png", region)
+
+    print("Map images generated.")
+    print(f"- {IMAGE_DIR / 'real_map_latest.png'}")
+    print(f"- {IMAGE_DIR / 'ndvi_map_latest.png'}")
+    print(f"- {IMAGE_DIR / 'ndmi_map_latest.png'}")
 
 def baseline_sentinel2_composite(target_date: date, aoi: ee.Geometry) -> ee.Image:
     monthly_images = []
@@ -463,6 +579,16 @@ def main() -> None:
     print("Extracting Sentinel-2 current NDVI/NDMI...")
     s2_current = sentinel2_index_composite(CURRENT_START_S2, CURRENT_END, aoi)
     s2_current_features = reduce_block_stats(s2_current, blocks_fc, scale=10)
+
+    print("Generating real RGB, NDVI, and NDMI map images...")
+    s2_rgb = sentinel2_rgb_composite(CURRENT_START_S2, CURRENT_END, aoi)
+
+    save_map_images(
+        rgb_image=s2_rgb,
+        index_image=s2_current,
+        blocks_fc=blocks_fc,
+        aoi=aoi,
+    )
 
     print("Extracting Sentinel-2 baseline NDVI/NDMI...")
     s2_baseline = baseline_sentinel2_composite(OBSERVATION_DATE, aoi)

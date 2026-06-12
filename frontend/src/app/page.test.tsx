@@ -73,9 +73,9 @@ describe("dashboard page", () => {
 
     expect(screen.getByText("Demo Estate")).toBeTruthy();
     expect(screen.getByText("Scouting Priority List")).toBeTruthy();
-    expect(screen.getByText("Block Risk Map")).toBeTruthy();
+    expect(screen.getByText("Estate Map")).toBeTruthy();
     expect(screen.getByText("Selected Block Detail")).toBeTruthy();
-    expect(screen.getByText("Field Verification Form")).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Verify Field" })).toBeTruthy();
     expect(screen.getByText("Last processed date")).toBeTruthy();
   });
 });

@@ -19,6 +19,10 @@ The Day 1 frontend uses local demo data first:
 
 The data files were copied from `geospatial/data/demo`. The frontend does not modify the geospatial source directory.
 
+Run `npm run sync:geospatial` from `frontend/` to refresh the local JSON files
+and generated map images. The command also runs automatically before
+`npm run dev` and `npm run build`.
+
 `src/lib/queries.ts` keeps the backend-compatible function names:
 
 - `getLatestBlockRisk(estateId)`
@@ -56,4 +60,8 @@ The frontend does not depend on `task_status` in `latest_scouting_priority`, bec
 
 ## Current Architecture Note
 
-`EstateMap.tsx` currently uses an SVG polygon map from GeoJSON coordinates. MapLibre GL JS remains installed and is the target architecture if the demo needs a tiled basemap or richer spatial interactions. The SVG fallback is intentional for Day 1 reliability.
+`EstateMap.tsx` uses SVG polygons from GeoJSON for block selection and supports
+four layers: risk category, Sentinel-2 true color, NDVI, and NDMI. The satellite
+images come from `geospatial/data/images`. Satellite, NDVI, and NDMI layers show
+the block risk categories as a 50% opacity SVG overlay and retain interactive
+block selection.

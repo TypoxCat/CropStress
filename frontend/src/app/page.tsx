@@ -34,6 +34,7 @@ export default function Page() {
   const [priorityRows, setPriorityRows] = useState<ScoutingPriorityRow[]>([]);
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [showFieldVerification, setShowFieldVerification] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -80,11 +81,13 @@ export default function Page() {
 
   async function handleFieldSubmit(payload: FieldReportPayload) {
     await submitFieldReport(payload);
+    setShowFieldVerification(false);
   }
 
   return (
     <main className="min-h-screen bg-[#eef3ed] text-crop-ink">
-      <header className="flex flex-wrap items-center justify-between gap-3 border-b border-crop-line bg-white px-5 py-4">
+      <div className="sticky top-0 z-10">
+      <header className=" flex flex-wrap items-center justify-between gap-3 border-b border-crop-line bg-white px-5 py-4">
         <div>
           <h1 className="text-xl font-bold">CropStress Insight</h1>
           <p className="text-sm text-slate-600">Demo Estate</p>
@@ -111,6 +114,7 @@ export default function Page() {
         ))}
         <MetricCard label="Last Processed" value={metrics.lastProcessed} />
       </section>
+      </div>
 
       {loadState === "error" ? (
         <section className="m-5 border border-red-300 bg-red-50 p-4 text-red-800">
@@ -124,8 +128,8 @@ export default function Page() {
         </section>
       ) : null}
 
-      <section className="grid min-h-[34rem] gap-px bg-crop-line lg:grid-cols-[minmax(20rem,28rem)_1fr_minmax(20rem,26rem)]">
-        <div className="min-h-[24rem] bg-white">
+      <section className="grid h-[50vh] gap-px bg-crop-line lg:grid-cols-[minmax(20rem,28rem)_1fr_minmax(20rem,26rem)]">
+        <div className="overflow-y-auto bg-white">
           <ScoutingPriorityList
             rows={priorityRows}
             selectedBlockId={selectedBlockId}
@@ -137,12 +141,31 @@ export default function Page() {
           selectedBlockId={selectedBlockId}
           onSelectBlock={setSelectedBlockId}
         />
-        <div className="bg-white">
-          <BlockDetailPanel block={selectedBlock} />
+        <div className="overflow-y-auto bg-white" >
+          <BlockDetailPanel block={selectedBlock} onVerifyField={() => setShowFieldVerification(true)} />
         </div>
       </section>
 
-      <FieldVerificationForm block={selectedBlock} onSubmit={handleFieldSubmit} />
+      {showFieldVerification && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+          <div className="h-50px w-full max-w-4xl rounded-lg bg-white shadow-lg overflow-hidden flex flex-col">
+            <div className="flex items-center justify-between border-b border-crop-line px-6 py-4">
+              <h2 className="text-lg font-bold">Field Verification</h2>
+              <button
+                onClick={() => setShowFieldVerification(false)}
+                className="text-slate-500 hover:text-slate-700"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="overflow-y-auto flex-1">
+              <div className="p-6">
+                <FieldVerificationForm block={selectedBlock} onSubmit={handleFieldSubmit} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

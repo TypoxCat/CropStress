@@ -39,22 +39,27 @@ export function ScoutingPriorityList({
               return (
                 <tr
                   key={row.block_id}
-                  className={
-                    selected ? "bg-emerald-50" : "border-t border-crop-line"
-                  }
+                  aria-label={`Select ${row.block_code ?? row.block_id}`}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => onSelectBlock(row.block_id)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onSelectBlock(row.block_id);
+                    }
+                  }}
+                  className={`cursor-pointer transition-colors ${
+                    selected ? "bg-emerald-50" : "border-t border-crop-line hover:bg-crop-panel"
+                  }`}
                 >
                   <td className="px-3 py-2 font-semibold">
                     {row.priority_rank}
                   </td>
                   <td className="px-3 py-2">
-                    <button
-                      aria-label={`Select ${row.block_code ?? row.block_id}`}
-                      className="font-semibold text-crop-field underline-offset-2 hover:underline"
-                      type="button"
-                      onClick={() => onSelectBlock(row.block_id)}
-                    >
+                    <span className="font-semibold text-crop-field">
                       {row.block_code ?? row.block_id}
-                    </button>
+                    </span>
                   </td>
                   <td className="px-3 py-2">
                     <RiskBadge category={row.risk_category} />
