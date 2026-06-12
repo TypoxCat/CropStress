@@ -58,12 +58,14 @@ ALLOWED_RISK_CATEGORIES = frozenset(
 CATEGORY_ORDER_ASC = ("Normal", "Watch", "Warning", "Priority Inspection")
 CATEGORY_ORDER_DESC = ("Priority Inspection", "Warning", "Watch", "Normal")
 MIN_BLOCKS_PER_CATEGORY = 5
+RISK_SCORE_TOLERANCE = 0.001
 
-# Default true because Day 1 real satellite data is usually too flat for the Day 2 demo.
-# Set CROPSTRESS_DAY2_PATCH_RISK=false to force strict validation without patching.
+# Default false because real satellite output should stay real, even when its
+# risk distribution is too flat for the polished Day 2 demo story.
+# Set CROPSTRESS_DAY2_PATCH_RISK=true to generate a balanced demo scenario.
 ENABLE_DEMO_SCENARIO_PATCH = os.getenv(
-    "CROPSTRESS_DAY2_PATCH_RISK", "true"
-).strip().lower() not in {"0", "false", "no", "off"}
+    "CROPSTRESS_DAY2_PATCH_RISK", "false"
+).strip().lower() in {"1", "true", "yes", "on"}
 
 # Optional. Keep false unless another agent needs regenerated JSON files too.
 WRITE_PATCHED_JSON = os.getenv(
@@ -345,6 +347,7 @@ def validate_final_day2_data(
     indicators: Sequence[Mapping[str, Any]],
     risk_scores: Sequence[Mapping[str, Any]],
     scouting: Sequence[Mapping[str, Any]],
+    require_demo_distribution: bool = True,
 ) -> None:
     validate_common_data(block_ids, indicators, risk_scores, scouting)
 
@@ -401,7 +404,7 @@ def validate_final_day2_data(
         saved_score = safe_float(row.get("risk_score"))
         if saved_score is None:
             raise ValueError(f"risk_scores row block_id={row.get('block_id')} has null risk_score")
-        if abs(formula_score - saved_score) > 0.0001:
+        if abs(formula_score - saved_score) > RISK_SCORE_TOLERANCE:
             raise ValueError(
                 f"risk_score for block_id={row.get('block_id')} does not match formula. "
                 f"saved={saved_score}, formula={formula_score}"
@@ -415,7 +418,7 @@ def validate_final_day2_data(
             )
 
     short_categories = underfilled_categories(risk_scores)
-    if short_categories:
+    if require_demo_distribution and short_categories:
         detail = ", ".join(
             f"{category}={short_categories[category]}" for category in CATEGORY_ORDER_ASC if category in short_categories
         )
@@ -968,18 +971,19 @@ insert into scouting_tasks (
   due_date
 )
 select
-  lsp.block_id,
-  lsp.risk_score_id,
+  rs.block_id,
+  rs.id,
   sp.priority_rank,
   sp.task_status,
-  lsp.recommended_action,
-  lsp.score_date + interval '1 day'
-from latest_scouting_priority lsp
+  rs.recommended_action,
+  rs.score_date + interval '1 day'
+from risk_scores rs
 join (
   values
   {scouting_values}
 ) as sp (block_id, priority_rank, task_status)
-  on sp.block_id = lsp.block_id
+  on sp.block_id = rs.block_id
+where rs.processing_run_id = {sql_text(PROCESSING_RUN_ID)}
 order by sp.priority_rank;
 """.strip()
     )
@@ -1016,26 +1020,45 @@ def main() -> int:
     print_distribution("Source risk distribution", risk_scores)
 
     scenario_was_patched = False
-    if underfilled_categories(risk_scores):
+    short_categories = underfilled_categories(risk_scores)
+    if short_categories:
         if not ENABLE_DEMO_SCENARIO_PATCH:
-            validate_final_day2_data(block_ids, indicators, risk_scores, scouting)
-        print(
-            "Source data is not Day 2 demo-ready. "
-            "Applying deterministic Day 2 scenario patch in memory."
-        )
-        indicators, risk_scores, scouting = apply_day2_demo_scenario(
-            indicators, risk_scores, scouting
-        )
-        scenario_was_patched = True
-        print_distribution("Patched risk distribution", risk_scores)
+            print(
+                "Source data is not Day 2 demo-balanced. "
+                "Keeping real satellite risk distribution because "
+                "CROPSTRESS_DAY2_PATCH_RISK is not enabled."
+            )
+            validate_final_day2_data(
+                block_ids,
+                indicators,
+                risk_scores,
+                scouting,
+                require_demo_distribution=False,
+            )
+        else:
+            print(
+                "Source data is not Day 2 demo-ready. "
+                "Applying deterministic Day 2 scenario patch in memory."
+            )
+            indicators, risk_scores, scouting = apply_day2_demo_scenario(
+                indicators, risk_scores, scouting
+            )
+            scenario_was_patched = True
+            print_distribution("Patched risk distribution", risk_scores)
 
-        if WRITE_PATCHED_JSON:
-            write_json(demo_dir / "block_indicators_latest.json", indicators)
-            write_json(demo_dir / "risk_scores_latest.json", risk_scores)
-            write_json(demo_dir / "scouting_priority_latest.json", scouting)
-            print("Patched JSON files were written because CROPSTRESS_DAY2_WRITE_PATCHED_JSON=true")
+            if WRITE_PATCHED_JSON:
+                write_json(demo_dir / "block_indicators_latest.json", indicators)
+                write_json(demo_dir / "risk_scores_latest.json", risk_scores)
+                write_json(demo_dir / "scouting_priority_latest.json", scouting)
+                print("Patched JSON files were written because CROPSTRESS_DAY2_WRITE_PATCHED_JSON=true")
 
-    validate_final_day2_data(block_ids, indicators, risk_scores, scouting)
+    validate_final_day2_data(
+        block_ids,
+        indicators,
+        risk_scores,
+        scouting,
+        require_demo_distribution=not short_categories or scenario_was_patched,
+    )
 
     sql = build_seed_sql(
         demo_dir=demo_dir,

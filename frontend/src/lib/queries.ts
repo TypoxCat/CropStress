@@ -15,6 +15,7 @@ import {
 export { DEMO_ESTATE_ID };
 export type { LatestBlockRisk, RiskCategory, ScoutingPriorityRow };
 export type DataMode = "live" | "demo";
+export type DataSourcePreference = "auto" | "live" | "demo";
 
 export type StressConfirmed = "Yes" | "No" | "Unclear";
 export type StressType =
@@ -47,14 +48,75 @@ export type FieldReportRow = FieldReportPayload & {
   created_at: string;
 };
 
-const FORCE_DEMO_DATA =
-  process.env.NEXT_PUBLIC_USE_DEMO_DATA === "true" ||
-  !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-  !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-let liveUnavailable = FORCE_DEMO_DATA;
+const DATA_SOURCE_STORAGE_KEY = "cropstress:data-source";
+const FORCE_DEMO_DATA = process.env.NEXT_PUBLIC_USE_DEMO_DATA === "true";
+const HAS_SUPABASE_CONFIG = Boolean(
+  process.env.NEXT_PUBLIC_SUPABASE_URL &&
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
+let liveUnavailable = FORCE_DEMO_DATA || !HAS_SUPABASE_CONFIG;
+let dataSourcePreference: DataSourcePreference = "auto";
+let currentDataMode: DataMode = liveUnavailable ? "demo" : "live";
+
+function isDataSourcePreference(value: unknown): value is DataSourcePreference {
+  return value === "auto" || value === "live" || value === "demo";
+}
+
+function readStoredDataSourcePreference(): DataSourcePreference {
+  if (typeof window === "undefined") {
+    return dataSourcePreference;
+  }
+
+  const storedValue = window.localStorage.getItem(DATA_SOURCE_STORAGE_KEY);
+  return isDataSourcePreference(storedValue) ? storedValue : "auto";
+}
+
+function getEffectiveDataSourcePreference(): DataSourcePreference {
+  dataSourcePreference = readStoredDataSourcePreference();
+  return dataSourcePreference;
+}
+
+function shouldUseDemoData(): boolean {
+  const preference = getEffectiveDataSourcePreference();
+
+  return (
+    preference === "demo" ||
+    FORCE_DEMO_DATA ||
+    !HAS_SUPABASE_CONFIG ||
+    (preference === "live" && liveUnavailable) ||
+    (preference === "auto" && liveUnavailable)
+  );
+}
+
+function shouldValidateJuryData(): boolean {
+  return getEffectiveDataSourcePreference() !== "live";
+}
 
 export function getDataMode(): DataMode {
-  return liveUnavailable ? "demo" : "live";
+  return currentDataMode;
+}
+
+export function getDataSourcePreference(): DataSourcePreference {
+  return getEffectiveDataSourcePreference();
+}
+
+export function setDataSourcePreference(preference: DataSourcePreference): void {
+  dataSourcePreference = preference;
+  liveUnavailable = FORCE_DEMO_DATA || !HAS_SUPABASE_CONFIG;
+  currentDataMode = shouldUseDemoData() ? "demo" : "live";
+
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(DATA_SOURCE_STORAGE_KEY, preference);
+  }
+}
+
+export function getDataSourceStatus() {
+  return {
+    mode: currentDataMode,
+    preference: getDataSourcePreference(),
+    hasSupabaseConfig: HAS_SUPABASE_CONFIG,
+    forceDemoData: FORCE_DEMO_DATA,
+  };
 }
 
 function useDemoFallback(error: unknown): void {
@@ -184,7 +246,8 @@ function createDemoFieldReport(payload: FieldReportPayload): FieldReportRow {
 export async function getLatestBlockRisk(
   estateId: string
 ): Promise<LatestBlockRisk[]> {
-  if (liveUnavailable) {
+  if (shouldUseDemoData()) {
+    currentDataMode = "demo";
     return (await getDemoBlockRisk()).filter((row) => row.estate_id === estateId);
   }
 
@@ -203,13 +266,18 @@ export async function getLatestBlockRisk(
       throw new Error("Supabase returned no latest block risk rows");
     }
 
-    if (!isDay2JuryReadyRiskData(data as unknown as LatestBlockRisk[])) {
+    if (
+      shouldValidateJuryData() &&
+      !isDay2JuryReadyRiskData(data as unknown as LatestBlockRisk[])
+    ) {
       throw new Error("Supabase risk data is not Day 2 jury-ready");
     }
 
+    currentDataMode = "live";
     return data as unknown as LatestBlockRisk[];
   } catch (error) {
     useDemoFallback(error);
+    currentDataMode = "demo";
     return (await getDemoBlockRisk()).filter((row) => row.estate_id === estateId);
   }
 }
@@ -217,7 +285,8 @@ export async function getLatestBlockRisk(
 export async function getScoutingPriority(
   estateId: string
 ): Promise<ScoutingPriorityRow[]> {
-  if (liveUnavailable) {
+  if (shouldUseDemoData()) {
+    currentDataMode = "demo";
     return getDemoScoutingPriority(estateId);
   }
 
@@ -236,19 +305,25 @@ export async function getScoutingPriority(
       throw new Error("Supabase returned no scouting priority rows");
     }
 
-    if (!isDay2JuryReadyRiskData(data as unknown as ScoutingPriorityRow[])) {
+    if (
+      shouldValidateJuryData() &&
+      !isDay2JuryReadyRiskData(data as unknown as ScoutingPriorityRow[])
+    ) {
       throw new Error("Supabase scouting data is not Day 2 jury-ready");
     }
 
+    currentDataMode = "live";
     return sortScoutingPriority(data as unknown as ScoutingPriorityRow[]);
   } catch (error) {
     useDemoFallback(error);
+    currentDataMode = "demo";
     return getDemoScoutingPriority(estateId);
   }
 }
 
 export async function getBlockDetail(blockId: string): Promise<LatestBlockRisk> {
-  if (liveUnavailable) {
+  if (shouldUseDemoData()) {
+    currentDataMode = "demo";
     const block = (await getDemoBlockRisk()).find((row) => row.block_id === blockId);
 
     if (!block) {
@@ -273,9 +348,11 @@ export async function getBlockDetail(blockId: string): Promise<LatestBlockRisk> 
       throw new Error(`Block not found: ${blockId}`);
     }
 
+    currentDataMode = "live";
     return data as unknown as LatestBlockRisk;
   } catch (error) {
     useDemoFallback(error);
+    currentDataMode = "demo";
     const block = (await getDemoBlockRisk()).find((row) => row.block_id === blockId);
 
     if (!block) {
@@ -289,7 +366,8 @@ export async function getBlockDetail(blockId: string): Promise<LatestBlockRisk> 
 export async function submitFieldReport(
   payload: FieldReportPayload
 ): Promise<FieldReportRow> {
-  if (liveUnavailable) {
+  if (shouldUseDemoData()) {
+    currentDataMode = "demo";
     return createDemoFieldReport(payload);
   }
 
@@ -323,9 +401,11 @@ export async function submitFieldReport(
       throw new Error("Field report insert returned no row");
     }
 
+    currentDataMode = "live";
     return data as unknown as FieldReportRow;
   } catch (error) {
     useDemoFallback(error);
+    currentDataMode = "demo";
     return createDemoFieldReport(payload);
   }
 }
