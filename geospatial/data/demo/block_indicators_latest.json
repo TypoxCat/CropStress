@@ -8,12 +8,19 @@
     "ndmi": 0.1952,
     "ndmi_baseline": 0.2316,
     "ndmi_anomaly": -0.0363,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-002",
@@ -24,12 +31,19 @@
     "ndmi": 0.2462,
     "ndmi_baseline": 0.2511,
     "ndmi_anomaly": -0.0049,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-003",
@@ -40,12 +54,19 @@
     "ndmi": 0.2685,
     "ndmi_baseline": 0.3059,
     "ndmi_anomaly": -0.0375,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-004",
@@ -56,12 +77,19 @@
     "ndmi": 0.2365,
     "ndmi_baseline": 0.25,
     "ndmi_anomaly": -0.0134,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-005",
@@ -72,12 +100,19 @@
     "ndmi": 0.2378,
     "ndmi_baseline": 0.2513,
     "ndmi_anomaly": -0.0135,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-006",
@@ -88,12 +123,19 @@
     "ndmi": 0.2645,
     "ndmi_baseline": 0.2675,
     "ndmi_anomaly": -0.003,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-007",
@@ -104,12 +146,19 @@
     "ndmi": 0.2651,
     "ndmi_baseline": 0.2713,
     "ndmi_anomaly": -0.0063,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-008",
@@ -120,12 +169,19 @@
     "ndmi": 0.2496,
     "ndmi_baseline": 0.2611,
     "ndmi_anomaly": -0.0115,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-009",
@@ -136,12 +192,19 @@
     "ndmi": 0.2127,
     "ndmi_baseline": 0.2449,
     "ndmi_anomaly": -0.0321,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-010",
@@ -152,12 +215,19 @@
     "ndmi": 0.2185,
     "ndmi_baseline": 0.2557,
     "ndmi_anomaly": -0.0372,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-011",
@@ -168,12 +238,19 @@
     "ndmi": 0.2339,
     "ndmi_baseline": 0.2587,
     "ndmi_anomaly": -0.0248,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-012",
@@ -184,12 +261,19 @@
     "ndmi": 0.2453,
     "ndmi_baseline": 0.2468,
     "ndmi_anomaly": -0.0015,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-013",
@@ -200,12 +284,19 @@
     "ndmi": 0.2684,
     "ndmi_baseline": 0.2594,
     "ndmi_anomaly": 0.009,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-014",
@@ -216,12 +307,19 @@
     "ndmi": 0.2563,
     "ndmi_baseline": 0.2671,
     "ndmi_anomaly": -0.0108,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-015",
@@ -232,12 +330,19 @@
     "ndmi": 0.2349,
     "ndmi_baseline": 0.2575,
     "ndmi_anomaly": -0.0226,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-016",
@@ -248,12 +353,19 @@
     "ndmi": 0.2749,
     "ndmi_baseline": 0.2883,
     "ndmi_anomaly": -0.0135,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-017",
@@ -264,12 +376,19 @@
     "ndmi": 0.2902,
     "ndmi_baseline": 0.2919,
     "ndmi_anomaly": -0.0018,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-018",
@@ -280,12 +399,19 @@
     "ndmi": 0.2116,
     "ndmi_baseline": 0.2267,
     "ndmi_anomaly": -0.0151,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-019",
@@ -296,12 +422,19 @@
     "ndmi": 0.2229,
     "ndmi_baseline": 0.2316,
     "ndmi_anomaly": -0.0087,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-020",
@@ -312,12 +445,19 @@
     "ndmi": 0.244,
     "ndmi_baseline": 0.2334,
     "ndmi_anomaly": 0.0106,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-021",
@@ -328,12 +468,19 @@
     "ndmi": 0.26,
     "ndmi_baseline": 0.2718,
     "ndmi_anomaly": -0.0119,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-022",
@@ -344,12 +491,19 @@
     "ndmi": 0.2735,
     "ndmi_baseline": 0.2588,
     "ndmi_anomaly": 0.0146,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-023",
@@ -360,12 +514,19 @@
     "ndmi": 0.2351,
     "ndmi_baseline": 0.2191,
     "ndmi_anomaly": 0.0159,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-024",
@@ -376,12 +537,19 @@
     "ndmi": 0.2184,
     "ndmi_baseline": 0.2178,
     "ndmi_anomaly": 0.0007,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-025",
@@ -392,12 +560,19 @@
     "ndmi": 0.2255,
     "ndmi_baseline": 0.237,
     "ndmi_anomaly": -0.0116,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-026",
@@ -408,12 +583,19 @@
     "ndmi": 0.1811,
     "ndmi_baseline": 0.1788,
     "ndmi_anomaly": 0.0023,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-027",
@@ -424,12 +606,19 @@
     "ndmi": 0.145,
     "ndmi_baseline": 0.1308,
     "ndmi_anomaly": 0.0142,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-028",
@@ -440,12 +629,19 @@
     "ndmi": 0.2521,
     "ndmi_baseline": 0.2419,
     "ndmi_anomaly": 0.0103,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-029",
@@ -456,12 +652,19 @@
     "ndmi": 0.2017,
     "ndmi_baseline": 0.2098,
     "ndmi_anomaly": -0.0081,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-030",
@@ -472,12 +675,19 @@
     "ndmi": 0.2262,
     "ndmi_baseline": 0.2097,
     "ndmi_anomaly": 0.0165,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-031",
@@ -488,12 +698,19 @@
     "ndmi": 0.2638,
     "ndmi_baseline": 0.2605,
     "ndmi_anomaly": 0.0033,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-032",
@@ -504,12 +721,19 @@
     "ndmi": 0.2587,
     "ndmi_baseline": 0.2451,
     "ndmi_anomaly": 0.0136,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-033",
@@ -520,12 +744,19 @@
     "ndmi": 0.1722,
     "ndmi_baseline": 0.232,
     "ndmi_anomaly": -0.0597,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-034",
@@ -536,12 +767,19 @@
     "ndmi": 0.1551,
     "ndmi_baseline": 0.1528,
     "ndmi_anomaly": 0.0023,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-035",
@@ -552,12 +790,19 @@
     "ndmi": 0.1431,
     "ndmi_baseline": 0.1276,
     "ndmi_anomaly": 0.0155,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-036",
@@ -568,12 +813,19 @@
     "ndmi": 0.167,
     "ndmi_baseline": 0.1555,
     "ndmi_anomaly": 0.0115,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-037",
@@ -584,12 +836,19 @@
     "ndmi": 0.2672,
     "ndmi_baseline": 0.2563,
     "ndmi_anomaly": 0.0109,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-038",
@@ -600,12 +859,19 @@
     "ndmi": 0.3052,
     "ndmi_baseline": 0.2992,
     "ndmi_anomaly": 0.006,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-039",
@@ -616,12 +882,19 @@
     "ndmi": 0.2585,
     "ndmi_baseline": 0.2574,
     "ndmi_anomaly": 0.0012,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-040",
@@ -632,12 +905,19 @@
     "ndmi": 0.2682,
     "ndmi_baseline": 0.2533,
     "ndmi_anomaly": 0.0149,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-041",
@@ -648,12 +928,19 @@
     "ndmi": 0.1065,
     "ndmi_baseline": 0.1674,
     "ndmi_anomaly": -0.0609,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-042",
@@ -664,12 +951,19 @@
     "ndmi": 0.1515,
     "ndmi_baseline": 0.1693,
     "ndmi_anomaly": -0.0178,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-043",
@@ -680,12 +974,19 @@
     "ndmi": 0.1591,
     "ndmi_baseline": 0.1645,
     "ndmi_anomaly": -0.0054,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-044",
@@ -696,12 +997,19 @@
     "ndmi": 0.2017,
     "ndmi_baseline": 0.2042,
     "ndmi_anomaly": -0.0025,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-045",
@@ -712,12 +1020,19 @@
     "ndmi": 0.2663,
     "ndmi_baseline": 0.2504,
     "ndmi_anomaly": 0.016,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-046",
@@ -728,12 +1043,19 @@
     "ndmi": 0.256,
     "ndmi_baseline": 0.2619,
     "ndmi_anomaly": -0.0059,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-047",
@@ -744,12 +1066,19 @@
     "ndmi": 0.2412,
     "ndmi_baseline": 0.2536,
     "ndmi_anomaly": -0.0124,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   },
   {
     "block_id": "B-048",
@@ -760,11 +1089,18 @@
     "ndmi": 0.2206,
     "ndmi_baseline": 0.234,
     "ndmi_anomaly": -0.0134,
-    "rainfall_30d_mm": 315.51,
+    "rainfall_30d_mm": 318.66,
     "rainfall_baseline_mm": 492.38,
-    "rainfall_deficit_pct": 35.92,
+    "rainfall_deficit_pct": 35.28,
     "hotspot_count_7d": 0,
     "nearest_hotspot_km": null,
-    "quality_flag": "real_satellite_valid"
+    "quality_flag": "real_satellite_valid",
+    "data_provenance": "real_satellite",
+    "indicator_sources": {
+      "ndvi": "COPERNICUS/S2_SR_HARMONIZED",
+      "ndmi": "COPERNICUS/S2_SR_HARMONIZED",
+      "rainfall": "NASA/GPM_L3/IMERG_V07",
+      "hotspot": "FIRMS"
+    }
   }
 ]
