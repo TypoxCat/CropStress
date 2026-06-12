@@ -37,6 +37,12 @@ vi.mock("@/lib/queries", async () => {
   return {
     DEMO_ESTATE_ID: "estate_demo_01",
     getDataMode: vi.fn(() => "demo"),
+    getDataSourceStatus: vi.fn(() => ({
+      mode: "demo",
+      preference: "auto",
+      hasSupabaseConfig: false,
+      forceDemoData: false,
+    })),
     getLatestBlockRisk: vi.fn(async () => [block]),
     getScoutingPriority: vi.fn(async () => [
       {
@@ -61,6 +67,7 @@ vi.mock("@/lib/queries", async () => {
       created_at: "2026-06-02T00:00:00.000Z",
       observed_at: "2026-06-02T00:00:00.000Z",
     })),
+    setDataSourcePreference: vi.fn(),
   };
 });
 
@@ -83,5 +90,7 @@ describe("dashboard page", () => {
     expect(screen.getByText("Inspect first:")).toBeTruthy();
     expect(screen.getByRole("button", { name: "Verify Field" })).toBeTruthy();
     expect(screen.getByText("Last processed date")).toBeTruthy();
+    expect(screen.getByText("Developer Menu")).toBeTruthy();
+    expect(screen.getByRole("combobox", { name: "Source" })).toBeTruthy();
   });
 });

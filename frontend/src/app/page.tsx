@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { BlockDetailPanel } from "@/components/BlockDetailPanel";
+import { DeveloperMenu } from "@/components/DeveloperMenu";
 import { EstateMap } from "@/components/EstateMap";
 import { FieldVerificationForm } from "@/components/FieldVerificationForm";
 import { ScoutingPriorityList } from "@/components/ScoutingPriorityList";
@@ -10,10 +11,13 @@ import { getEstateMetrics } from "@/lib/demoData";
 import {
   DEMO_ESTATE_ID,
   getDataMode,
+  getDataSourceStatus,
   getLatestBlockRisk,
   getScoutingPriority,
+  setDataSourcePreference,
   submitFieldReport,
   type DataMode,
+  type DataSourcePreference,
   type FieldReportPayload,
   type LatestBlockRisk,
   type ScoutingPriorityRow,
@@ -45,18 +49,20 @@ export default function Page() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showFieldVerification, setShowFieldVerification] = useState(false);
   const [dataMode, setDataMode] = useState<DataMode>("demo");
+  const [dataSourcePreference, setDataSourcePreferenceState] =
+    useState<DataSourcePreference>("auto");
+  const [hasSupabaseConfig, setHasSupabaseConfig] = useState(false);
+  const [forceDemoData, setForceDemoData] = useState(false);
   const [submissionMessage, setSubmissionMessage] = useState<string | null>(null);
 
-  useEffect(() => {
-    let active = true;
-
-    async function loadDashboard() {
+  const refreshDashboard = useCallback(
+    async (isActive: () => boolean = () => true) => {
       try {
+        setLoadState("loading");
+        setErrorMessage(null);
         const initialDataMode = getDataMode();
-        let [latestRisk, priority] = await Promise.all([
-          getLatestBlockRisk(DEMO_ESTATE_ID),
-          getScoutingPriority(DEMO_ESTATE_ID),
-        ]);
+        let latestRisk = await getLatestBlockRisk(DEMO_ESTATE_ID);
+        let priority = await getScoutingPriority(DEMO_ESTATE_ID);
 
         if (initialDataMode === "live" && getDataMode() === "demo") {
           [latestRisk, priority] = await Promise.all([
@@ -65,17 +71,22 @@ export default function Page() {
           ]);
         }
 
-        if (!active) {
+        if (!isActive()) {
           return;
         }
+
+        const status = getDataSourceStatus();
 
         setBlocks(latestRisk);
         setPriorityRows(priority);
         setSelectedBlockId(priority[0]?.block_id ?? latestRisk[0]?.block_id ?? null);
-        setDataMode(getDataMode());
+        setDataMode(status.mode);
+        setDataSourcePreferenceState(status.preference);
+        setHasSupabaseConfig(status.hasSupabaseConfig);
+        setForceDemoData(status.forceDemoData);
         setLoadState("ready");
       } catch (error) {
-        if (!active) {
+        if (!isActive()) {
           return;
         }
 
@@ -84,14 +95,19 @@ export default function Page() {
         );
         setLoadState("error");
       }
-    }
+    },
+    []
+  );
 
-    loadDashboard();
+  useEffect(() => {
+    let active = true;
+
+    refreshDashboard(() => active);
 
     return () => {
       active = false;
     };
-  }, []);
+  }, [refreshDashboard]);
 
   const selectedBlock = useMemo(
     () => blocks.find((block) => block.block_id === selectedBlockId) ?? null,
@@ -102,14 +118,25 @@ export default function Page() {
 
   async function handleFieldSubmit(payload: FieldReportPayload) {
     await submitFieldReport(payload);
-    const currentDataMode = getDataMode();
-    setDataMode(currentDataMode);
+    const status = getDataSourceStatus();
+    setDataMode(status.mode);
+    setDataSourcePreferenceState(status.preference);
+    setHasSupabaseConfig(status.hasSupabaseConfig);
+    setForceDemoData(status.forceDemoData);
     setSubmissionMessage(
-      currentDataMode === "live"
+      status.mode === "live"
         ? "Field verification saved to Supabase."
         : "Field verification saved in demo mode."
     );
     setShowFieldVerification(false);
+  }
+
+  async function handleDataSourcePreferenceChange(
+    preference: DataSourcePreference
+  ) {
+    setDataSourcePreference(preference);
+    setDataSourcePreferenceState(preference);
+    await refreshDashboard();
   }
 
   return (
@@ -248,6 +275,14 @@ export default function Page() {
           </div>
         </div>
       ) : null}
+
+      <DeveloperMenu
+        dataMode={dataMode}
+        forceDemoData={forceDemoData}
+        hasSupabaseConfig={hasSupabaseConfig}
+        preference={dataSourcePreference}
+        onPreferenceChange={handleDataSourcePreferenceChange}
+      />
     </main>
   );
 }
