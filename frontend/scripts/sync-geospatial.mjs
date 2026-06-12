@@ -82,10 +82,6 @@ if (validDay2Data) {
     )
   );
 } else {
-  await copyFile(
-    join(geospatialDir, "demo", "blocks.geojson"),
-    join(publicDir, "demo", "blocks.geojson")
-  );
   console.warn(
     `Geospatial risk data is not Day 2 jury-ready (${JSON.stringify(
       categoryCounts
@@ -111,7 +107,7 @@ await Promise.all(
 );
 
 console.log(
-  `Synced ${validDay2Data ? demoFiles.length : 1} data files and ${
+  `Synced ${validDay2Data ? demoFiles.length : 0} data files and ${
     imageFiles.length
   } map images from geospatial.`
 );

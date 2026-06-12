@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import Page from "./page";
 
@@ -73,6 +74,7 @@ vi.mock("@/lib/queries", async () => {
 
 describe("dashboard page", () => {
   it("renders the Day 2 jury story from query data", async () => {
+    const user = userEvent.setup();
     render(<Page />);
 
     await waitFor(() => {
@@ -91,6 +93,16 @@ describe("dashboard page", () => {
     expect(screen.getByRole("button", { name: "Verify Field" })).toBeTruthy();
     expect(screen.getByText("Last processed date")).toBeTruthy();
     expect(screen.getByText("Developer Menu")).toBeTruthy();
+    expect(screen.getByRole("combobox", { name: "Source" })).toBeTruthy();
+
+    await user.click(screen.getByRole("button", { name: "Close" }));
+
+    expect(screen.queryByRole("combobox", { name: "Source" })).toBeNull();
+    expect(screen.getByText("Developer Menu")).toBeTruthy();
+    expect(screen.getByText("Dummy")).toBeTruthy();
+
+    await user.click(screen.getByRole("button", { name: "Open" }));
+
     expect(screen.getByRole("combobox", { name: "Source" })).toBeTruthy();
   });
 });
